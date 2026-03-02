@@ -13,22 +13,24 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float ascendMultiplier = 2f; // Multiplies gravity for ascending to peak of jump
     
     [Header("Camera Rotation")]
+    [SerializeField] private float mouseSensitivity = 2f;
     
     // TODO move to different script that handles layers instead of player
     [SerializeField] private LayerMask groundLayer;
     
-    // Ground Movement
     private Rigidbody rb;
     private float moveHorizontal;
     private float moveForward;
-
-    // Jumping
+    
     private bool isGrounded = true;
     
     private float groundCheckTimer = 0f;
     private float groundCheckDelay = 0.3f;
     private float playerHeight;
     private float raycastDistance;
+
+    private float verticalRotation = 0f;
+    private Transform cameraTransform;
 
     private void Start() => 
         Init();
@@ -37,7 +39,8 @@ public class PlayerController : MonoBehaviour
     {
         moveHorizontal = Input.GetAxisRaw("Horizontal");
         moveForward = Input.GetAxisRaw("Vertical");
-        
+
+        RotateCamera();
 
         if (Input.GetButtonDown("Jump") && isGrounded) 
             HandleJump();
@@ -56,6 +59,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         
+        cameraTransform = Camera.main.transform;
+        
         playerHeight = GetComponent<CapsuleCollider>().height * transform.localScale.y;
         raycastDistance = (playerHeight / 2) + 0.2f;
         
@@ -64,6 +69,7 @@ public class PlayerController : MonoBehaviour
         Cursor.visible = false;
     }
 
+    
     private void GroundCheck()
     {
         if (!isGrounded && groundCheckTimer <= 0f)
@@ -86,6 +92,17 @@ public class PlayerController : MonoBehaviour
         
         if (isGrounded && moveHorizontal == 0 && moveForward == 0)
             rb.velocity = new Vector3(0, rb.velocity.y, 0);
+    }
+    
+    private void RotateCamera()
+    {
+        var horizontalRotation = Input.GetAxis("Mouse X") * mouseSensitivity;
+        transform.Rotate(0, horizontalRotation, 0);
+
+        verticalRotation -= Input.GetAxis("Mouse Y") * mouseSensitivity;
+        verticalRotation = Mathf.Clamp(verticalRotation, -90f, 90f);
+
+        cameraTransform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
     }
 
     private void HandleJump()
