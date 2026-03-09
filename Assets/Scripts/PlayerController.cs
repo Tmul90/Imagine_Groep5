@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
-    [SerializeField] private float MoveSpeed = 5f;
+    [SerializeField] private float moveSpeed = 5f;
 
     [Header("Jump")]
     [SerializeField] private float jumpForce = 10f;
@@ -38,17 +38,13 @@ public class PlayerController : MonoBehaviour
         moveForward = Input.GetAxisRaw("Vertical");
 
         RotateCamera();
+        MovePlayer();
+        ApplyJumpPhysics();
 
         if (Input.GetButtonDown("Jump") && isGrounded)
             HandleJump();
 
         GroundCheck();
-    }
-
-    private void FixedUpdate()
-    {
-        MovePlayer();
-        ApplyJumpPhysics();
     }
 
     private void Init()
@@ -75,8 +71,10 @@ public class PlayerController : MonoBehaviour
 
     private void MovePlayer()
     {
+        print(transform.eulerAngles);
         var movement = (transform.right * moveHorizontal + transform.forward * moveForward).normalized;
-        var targetVelocity = movement * MoveSpeed;
+
+        var targetVelocity = movement * moveSpeed;
 
         var velocity = rb.linearVelocity;
         velocity.x = targetVelocity.x;
@@ -111,10 +109,10 @@ public class PlayerController : MonoBehaviour
         switch (rb.linearVelocity.y)
         {
             case < 0:
-                rb.linearVelocity += Vector3.up * (Physics.gravity.y * fallMultiplier * Time.fixedDeltaTime);
+                rb.linearVelocity += Vector3.up * (Physics.gravity.y * fallMultiplier * Time.deltaTime);
                 break;
             case > 0:
-                rb.linearVelocity += Vector3.up * (Physics.gravity.y * ascendMultiplier * Time.fixedDeltaTime);
+                rb.linearVelocity += Vector3.up * (Physics.gravity.y * ascendMultiplier * Time.deltaTime);
                 break;
         }
     }
