@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
+[RequireComponent(typeof(Rigidbody))] 
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
@@ -23,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private float _moveForward;
     
     private bool _isGrounded = true;
+    private bool _movementEnabled = true;
     
     private float _groundCheckTimer = 0f;
     
@@ -33,12 +33,16 @@ public class PlayerController : MonoBehaviour
     private Transform _cameraTransform;
     
     private const float GroundCheckDelay = 0.3f;
+    
+    public void SetMovementEnabled(bool enabled) => _movementEnabled = enabled;
 
     private void Start() => 
         Init();
 
     private void Update()
     {
+        if (!_movementEnabled) return;
+        
         _moveHorizontal = Input.GetAxisRaw("Horizontal");
         _moveForward = Input.GetAxisRaw("Vertical");
 
@@ -51,6 +55,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!_movementEnabled) return;
+        
         MovePlayer();
         ApplyJumpPhysics();
     }
