@@ -97,9 +97,9 @@ public class ParkourController : MonoBehaviour
         yield return MoveToPoint(transform.position, hangPos, speed);
         
         var standPos = new Vector3(
-            transform.position.x + transform.forward.x * 0.6f,
+            transform.position.x + transform.forward.x,
             ledgePoint.y + capsuleHeight / 2f,
-            transform.position.z + transform.forward.z * 0.6f
+            transform.position.z + transform.forward.z
             );
         
         yield return MoveToPoint(transform.position, standPos, speed * 0.8f);
