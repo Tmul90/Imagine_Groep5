@@ -58,8 +58,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3231430073643657181}
+  - component: {fileID: 3267503689379468245}
   m_Layer: 0
-  m_Name: OverStim
+  m_Name: OverStimulation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,3 +82,25 @@ Transform:
   - {fileID: 8634787893466204447}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3267503689379468245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2425612502418300802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995bfb16dd6396530adfc78d94c7c7da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  globalVolume: {fileID: 3892318341391187574}
+  player: {fileID: 0}
+  stimulationPercentage: 0
+  stimCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  stimHeightBounds: {x: 0, y: 0}
