@@ -78,7 +78,6 @@ public class PlayerController : MonoBehaviour
 
     private void MovePlayer()
     {
-        print(transform.eulerAngles);
         var movement = (transform.right * moveHorizontal + transform.forward * moveForward).normalized;
 
         var targetVelocity = movement * moveSpeed;
