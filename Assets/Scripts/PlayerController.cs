@@ -1,132 +1,118 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))] 
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 5f;
-    
+
     [Header("Jump")]
     [SerializeField] private float jumpForce = 10f;
     [SerializeField] private float fallMultiplier = 2.5f; // Multiplies gravity when falling down
     [SerializeField] private float ascendMultiplier = 2f; // Multiplies gravity for ascending to peak of jump
-    
+    [SerializeField] private Area jumpArea;
+
     [Header("Camera Rotation")]
     [SerializeField] private float mouseSensitivity = 2f;
-    
+
     // TODO move to different script that handles layers instead of player
     [SerializeField] private LayerMask groundLayer;
-    
-    private Rigidbody _rb;
-    private float _moveHorizontal;
-    private float _moveForward;
-    
-    private bool _isGrounded = true;
-    private bool _movementEnabled = true;
-    
-    private float _groundCheckTimer = 0f;
-    
-    private float _playerHeight;
-    private float _raycastDistance;
 
-    private float _verticalRotation = 0f;
+    private Rigidbody rb;
+    private float moveHorizontal;
+    private float moveForward;
+
+    private bool isGrounded = true;
+
+    private float groundCheckTimer = 0f;
+    private float groundCheckDelay = 0.3f;
+
+    private Vector2 _cameraRotation = Vector2.zero;
     private Transform _cameraTransform;
-    
-    private const float GroundCheckDelay = 0.3f;
-    
-    public void SetMovementEnabled(bool enabled) => _movementEnabled = enabled;
 
-    private void Start() => 
+    private void Start() =>
         Init();
 
     private void Update()
     {
-        if (!_movementEnabled) return;
-        
-        _moveHorizontal = Input.GetAxisRaw("Horizontal");
-        _moveForward = Input.GetAxisRaw("Vertical");
+        moveHorizontal = Input.GetAxisRaw("Horizontal");
+        moveForward = Input.GetAxisRaw("Vertical");
 
         RotateCamera();
+        MovePlayer();
+        ApplyJumpPhysics();
 
-        if (Input.GetButtonDown("Jump") && _isGrounded) { HandleJump(); }
+        if (Input.GetButtonDown("Jump") && isGrounded)
+            HandleJump();
 
         GroundCheck();
     }
 
-    private void FixedUpdate()
-    {
-        if (!_movementEnabled) return;
-        
-        MovePlayer();
-        ApplyJumpPhysics();
-    }
-
     private void Init()
     {
-        _rb = GetComponent<Rigidbody>();
-        _rb.freezeRotation = true;
+        rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
 
         if (Camera.main is not null) { _cameraTransform = Camera.main.transform; }
 
-        _playerHeight = GetComponent<CapsuleCollider>().height * transform.localScale.y;
-        _raycastDistance = (_playerHeight / 2) + 0.2f;
-        
         // TODO move to cursor script that flips it on and off
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
-    
+
     private void GroundCheck()
     {
-        if (!_isGrounded && _groundCheckTimer <= 0f)
+        if (!isGrounded && groundCheckTimer <= 0f)
         {
-            var rayOrigin = transform.position + Vector3.up * 0.1f;
-            _isGrounded = Physics.Raycast(rayOrigin, Vector3.down, _raycastDistance, groundLayer);
+            isGrounded = jumpArea.collide;
         }
-        else { _groundCheckTimer -= Time.deltaTime; }
+        else groundCheckTimer -= Time.deltaTime;
     }
 
     private void MovePlayer()
     {
-        var movement = (transform.right * _moveHorizontal + transform.forward * _moveForward).normalized;
+        print(transform.eulerAngles);
+        var movement = (transform.right * moveHorizontal + transform.forward * moveForward).normalized;
+
         var targetVelocity = movement * moveSpeed;
-        
-        var velocity = _rb.linearVelocity;
+
+        var velocity = rb.linearVelocity;
         velocity.x = targetVelocity.x;
         velocity.z = targetVelocity.z;
-        _rb.linearVelocity = velocity;
-        
-        if (_isGrounded && _moveHorizontal == 0 && _moveForward == 0) { _rb.linearVelocity = new Vector3(0, _rb.linearVelocity.y, 0); }
+        rb.linearVelocity = velocity;
+
+        if (isGrounded && moveHorizontal == 0 && moveForward == 0)
+            rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
     }
-    
+
     private void RotateCamera()
     {
         var horizontalRotation = Input.GetAxis("Mouse X") * mouseSensitivity;
-        transform.Rotate(0, horizontalRotation, 0);
+        var verticalRotation = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
-        _verticalRotation -= Input.GetAxis("Mouse Y") * mouseSensitivity;
-        _verticalRotation = Mathf.Clamp(_verticalRotation, -90f, 90f);
+        _cameraRotation += new Vector2(horizontalRotation, -verticalRotation);
+        _cameraRotation.y = Mathf.Clamp(_cameraRotation.y, -90f, 90f);
 
-        _cameraTransform.localRotation = Quaternion.Euler(_verticalRotation, 0, 0);
+        transform.eulerAngles = new Vector3(0, _cameraRotation.x, 0);
+        _cameraTransform.eulerAngles = new Vector3(_cameraRotation.y, _cameraRotation.x, 0);
     }
 
     private void HandleJump()
     {
-        _isGrounded = false;
-        _groundCheckTimer = GroundCheckDelay;
-        _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, jumpForce, _rb.linearVelocity.z);
+        isGrounded = false;
+        groundCheckTimer = groundCheckDelay;
+        rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpForce, rb.linearVelocity.z);
     }
 
     private void ApplyJumpPhysics()
     {
-        switch (_rb.linearVelocity.y)
+        switch (rb.linearVelocity.y)
         {
             case < 0:
-                _rb.linearVelocity += Vector3.up * (Physics.gravity.y * fallMultiplier * Time.fixedDeltaTime);
+                rb.linearVelocity += Vector3.up * (Physics.gravity.y * fallMultiplier * Time.deltaTime);
                 break;
             case > 0:
-                _rb.linearVelocity += Vector3.up * (Physics.gravity.y * ascendMultiplier * Time.fixedDeltaTime);
+                rb.linearVelocity += Vector3.up * (Physics.gravity.y * ascendMultiplier * Time.deltaTime);
                 break;
         }
     }
