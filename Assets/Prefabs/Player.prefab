@@ -164,6 +164,7 @@ GameObject:
   - component: {fileID: 8279933821398169997}
   - component: {fileID: 1492042101601674143}
   - component: {fileID: 7809730079058952817}
+  - component: {fileID: 5280421042839322300}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -313,6 +314,23 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &5280421042839322300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5552376964741310126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b3327520c93d0241a5d125ef7cce310, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionRadius: 1.8
+  parkourLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  parkourKeyCode: 304
 --- !u!1 &7557614746268631484
 GameObject:
   m_ObjectHideFlags: 0
