@@ -57,10 +57,10 @@ public class OverStim : MonoBehaviour
         else
         {
             // Outside greenzone
-            float playerHeight = player.transform.position.y; // Get player height
-            float clampedHeight = Mathf.Clamp(playerHeight, stimulationHeightBounds.x, stimulationHeightBounds.y); // Clamp height to bounds
-            float curvePosition = (clampedHeight - stimulationHeightBounds.x) / (stimulationHeightBounds.y - stimulationHeightBounds.x); // Get a value between 0 and 1
-            float addStimulation = stimulationCurve.Evaluate(curvePosition); // Evaluate curve based on the player's height
+            var playerHeight = player.transform.position.y; // Get player height
+            var clampedHeight = Mathf.Clamp(playerHeight, stimulationHeightBounds.x, stimulationHeightBounds.y); // Clamp height to bounds
+            var curvePosition = (clampedHeight - stimulationHeightBounds.x) / (stimulationHeightBounds.y - stimulationHeightBounds.x); // Get a value between 0 and 1
+            var addStimulation = stimulationCurve.Evaluate(curvePosition); // Evaluate curve based on the player's height
         
             stimulationPercentage += addStimulation * Time.deltaTime * addStimulationSpeed; // Apply stimulation
         }
@@ -72,7 +72,7 @@ public class OverStim : MonoBehaviour
     
     private void VisualFeedback()
     {
-        float s = stimulationPercentage;
+        var s = stimulationPercentage;
         
         // Set stimulation params
         globalVolume.profile.TryGet(out CA);
@@ -82,7 +82,7 @@ public class OverStim : MonoBehaviour
         if(CA != null && LD != null && VN != null && DOF != null)
         {
             CA.intensity.value = Mathf.Lerp(s / 100, CA.intensity.value, 0.9f); // Colour Aberration
-            LD.intensity.value = Mathf.Lerp((s / 100) * 0.5f, LD.intensity.value, 0.9f); // Lens Distortion
+            LD.intensity.value = (s / 100) * 0.5f; // Lens Distortion
             VN.intensity.value = Mathf.Lerp(vignetteCurve.Evaluate(s / 100), VN.intensity.value, 0.9f); // Vignette
             DOF.focusDistance.value = Mathf.Lerp(focusDistanceCurve.Evaluate(s / 100) * 100, DOF.focusDistance.value, 0.9f); // Depth of field
         }
@@ -91,8 +91,8 @@ public class OverStim : MonoBehaviour
         if (s > 50)
         {
             // Shake
-            float posStrength = (s - 50) * 0.0005f;
-            float rotStrength = (s - 50) * 0.001f;
+            var posStrength = (s - 50) * 0.0005f;
+            var rotStrength = (s - 50) * 0.001f;
             shake.SetShake(posStrength, rotStrength);
             // FOV
             cam.fieldOfView = startFOV - ((s - 50) * 0.2f);
@@ -104,13 +104,10 @@ public class OverStim : MonoBehaviour
         
         // Set bloom when entering a greenzone
         globalVolume.profile.TryGet(out BL);
-        if (BL != null)
-        {
-            if (greenZones.inGreenZone)
-                BL.intensity.value = Mathf.Lerp(50f, BL.intensity.value, 0.9f);
-            else
-                BL.intensity.value = Mathf.Lerp(0f, BL.intensity.value, 0.9f);
-        }
+        if (BL != null && greenZones.inGreenZone)
+            BL.intensity.value = Mathf.Lerp(50f, BL.intensity.value, 0.9f);
+        else
+            BL.intensity.value = Mathf.Lerp(0f, BL.intensity.value, 0.9f);
     }
     
     private void Respawn()

@@ -15,7 +15,8 @@ public class GreenZone : MonoBehaviour
         if (area.collide && area.otherObject != null)
         {
             PlayerController player = area.otherObject.GetComponent<PlayerController>();
-            player.spawnPoint = spawnPoint.position;
+            if(player != null){}
+                player.spawnPoint = spawnPoint.position;
         }
     }
 }
