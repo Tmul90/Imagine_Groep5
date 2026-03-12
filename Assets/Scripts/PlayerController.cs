@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
@@ -15,6 +14,9 @@ public class PlayerController : MonoBehaviour
     [Header("Camera Rotation")]
     [SerializeField] private float mouseSensitivity = 2f;
 
+    [Header("Spawnpoint")]
+    public Vector3 spawnPoint;
+    
     // TODO move to different script that handles layers instead of player
     [SerializeField] private LayerMask groundLayer;
 
@@ -29,16 +31,12 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 _cameraRotation = Vector2.zero;
     private Transform _cameraTransform;
-    
-    private bool _movementEnabled = true;
 
     private void Start() =>
         Init();
 
     private void Update()
     {
-        if (!_movementEnabled) return;
-        
         moveHorizontal = Input.GetAxisRaw("Horizontal");
         moveForward = Input.GetAxisRaw("Vertical");
 
@@ -51,8 +49,6 @@ public class PlayerController : MonoBehaviour
 
         GroundCheck();
     }
-    
-    public void SetMovementEnabled(bool enabled) => _movementEnabled = enabled;
 
     private void Init()
     {
@@ -121,5 +117,13 @@ public class PlayerController : MonoBehaviour
                 rb.linearVelocity += Vector3.up * (Physics.gravity.y * ascendMultiplier * Time.deltaTime);
                 break;
         }
+    }
+
+    public void Respawn()
+    {
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        rb.position = spawnPoint;
+        rb.rotation = Quaternion.identity;
     }
 }
