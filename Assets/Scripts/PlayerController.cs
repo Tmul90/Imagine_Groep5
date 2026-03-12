@@ -32,11 +32,15 @@ public class PlayerController : MonoBehaviour
     private Vector2 _cameraRotation = Vector2.zero;
     private Transform _cameraTransform;
 
+    private bool _movementEnabled = true;
+
     private void Start() =>
         Init();
 
     private void Update()
     {
+        if (!_movementEnabled) return;
+        
         moveHorizontal = Input.GetAxisRaw("Horizontal");
         moveForward = Input.GetAxisRaw("Vertical");
 
@@ -49,6 +53,8 @@ public class PlayerController : MonoBehaviour
 
         GroundCheck();
     }
+
+    public void SetMovementEnabled(bool enabled) => _movementEnabled = enabled; 
 
     private void Init()
     {
