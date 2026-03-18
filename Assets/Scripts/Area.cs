@@ -9,8 +9,10 @@ public class Area : MonoBehaviour
     {
         collide = true;
         otherObject = other.gameObject;
+        /*
         if(otherObject != null)
             print(otherObject);
+        */
     }
 
     private void OnTriggerExit(Collider other)
