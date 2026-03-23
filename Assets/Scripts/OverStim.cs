@@ -8,6 +8,8 @@ public class OverStim : MonoBehaviour
     [Header("References")]
     [SerializeField] private Volume globalVolume;
     public GameObject player;
+    [SerializeField] private Terrain terrain;
+    [SerializeField] private AudioReverbFilter reverbFilter;
     private PlayerController playerController;
     public GreenZones greenZones;
     private Camera cam;
@@ -51,13 +53,15 @@ public class OverStim : MonoBehaviour
     
     private void AddStimulation()
     {
+        var playerHeight = player.transform.position.y - terrain.SampleHeight(player.transform.position); // Get player height
+        AuditoryFeedback(playerHeight);
+        
         if (greenZones.inGreenZone)
             // In greenzone
             stimulationPercentage -= stimulationRecoverySpeed * Time.deltaTime;
         else
         {
             // Outside greenzone
-            var playerHeight = player.transform.position.y; // Get player height
             var clampedHeight = Mathf.Clamp(playerHeight, stimulationHeightBounds.x, stimulationHeightBounds.y); // Clamp height to bounds
             var curvePosition = (clampedHeight - stimulationHeightBounds.x) / (stimulationHeightBounds.y - stimulationHeightBounds.x); // Get a value between 0 and 1
             var addStimulation = stimulationCurve.Evaluate(curvePosition); // Evaluate curve based on the player's height
@@ -66,7 +70,6 @@ public class OverStim : MonoBehaviour
         }
         
         stimulationPercentage = Mathf.Clamp(stimulationPercentage, 0f, 100f); // Clamp stimulationn
-        print(stimulationPercentage); // DEBUG
     }
 
     
@@ -108,6 +111,12 @@ public class OverStim : MonoBehaviour
             BL.intensity.value = Mathf.Lerp(50f, BL.intensity.value, 0.9f);
         else
             BL.intensity.value = Mathf.Lerp(0f, BL.intensity.value, 0.9f);
+    }
+
+    private void AuditoryFeedback(float height)
+    {
+        reverbFilter.dryLevel = 0 - (height * 35f);
+        print(height);
     }
     
     private void Respawn()
