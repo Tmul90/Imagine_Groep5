@@ -5,7 +5,7 @@ using Util;
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(CapsuleCollider))]
 [RequireComponent(typeof(CameraController))]
-//[RequireComponent(typeof(ParkourController))]
+[RequireComponent(typeof(ParkourController))]
 [RequireComponent(typeof(JumpManager))]
 public class PlayerController : Singleton<PlayerController>
 {
