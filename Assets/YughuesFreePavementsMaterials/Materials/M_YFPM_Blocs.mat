@@ -7,16 +7,16 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Procedural Skybox 2.0 Lite (Evening)
-  m_Shader: {fileID: 4800000, guid: bea2917b14b4f8f4f94359360c380e8d, type: 3}
+  m_Name: M_YFPM_Blocs
+  m_Shader: {fileID: 45, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords:
-  - _ENABLECLOUDS_ON
-  - _ENABLESTARS_ON
+  m_ValidKeywords:
+  - _NORMALMAP
+  - _SPECGLOSSMAP
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -26,7 +26,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: b95298ff5d827074b9ffe7fc6e722ade, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -46,14 +46,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 1db2cfc7440732d4bb90f0f21edc0b16, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MoonTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -65,64 +61,30 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 2800000, guid: 1078e073ca020cd49931aea67ccfa0d5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AtmosphereThickness: 0.8
     - _BumpScale: 1
-    - _CloudAnisotropy: 0.5
-    - _CloudBaseHeight: 0.188
-    - _CloudCoverage: 1
-    - _CloudLightIntensity: 2.5
-    - _CloudOffsetX: 0
-    - _CloudRotationX: 0
-    - _CloudRotationY: 360
-    - _CloudScale: 1.79
-    - _CloudSeed: 123
-    - _CloudSoftness: 0.353
-    - _CloudSpeed: 0.08
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _EnableClouds: 1
-    - _EnableMoon: 0
-    - _EnableStars: 1
     - _GlossMapScale: 1
-    - _Glossiness: 0.5
+    - _Glossiness: 1
     - _GlossyReflections: 1
-    - _GroundPower: 1
-    - _HorizonCurvature: 0.1
-    - _HorizonHeight: -0.154
-    - _HorizonSharpness: 0.102
     - _Metallic: 0
     - _Mode: 0
-    - _MoonSize: 0
     - _OcclusionStrength: 1
-    - _Overcast: 0
     - _Parallax: 0.02
-    - _SkyExposure: 0.97
-    - _SkySaturation: 1.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _StarDensity: 132
-    - _StarHeight: -1
-    - _StarIntensity: 0.15
-    - _StarSeed: 0
-    - _SunConvergence: 9.12
-    - _SunFlareIntensity: 0.1
-    - _SunFlareLength: 0
-    - _SunFlareRayCount: 8
-    - _SunHaze: 0.129
-    - _SunSize: 0.067
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _CloudTint: {r: 0.9335477, g: 0.99586165, b: 1, a: 1}
-    - _CloudWindDirection: {r: 0.5, g: 0.2, b: 0.3, a: 0.7}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.75, g: 0.75, b: 0.675, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _GroundColor: {r: 0.89649475, g: 0.63735884, b: 0.27628204, a: 1}
-    - _HorizonColor: {r: 0.90295583, g: 0.73409575, b: 0.41937983, a: 1}
-    - _ZenithColor: {r: 0.62326884, g: 0.6894051, b: 0.6507503, a: 1}
+    - _SpecColor: {r: 0.22, g: 0.22, b: 0.22, a: 1}
   m_BuildTextureStacks: []
-  m_AllowLocking: 1
