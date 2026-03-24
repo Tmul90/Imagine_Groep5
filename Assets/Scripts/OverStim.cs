@@ -9,6 +9,7 @@ public class OverStim : MonoBehaviour
     [SerializeField] private Volume globalVolume;
     public GameObject player;
     [SerializeField] private GameObject audioSource;
+    [SerializeField] private AudioSource beep;
     private AudioEchoFilter echoFilter;
     private AudioLowPassFilter lowPassFilter;
     private AudioReverbFilter reverbFilter;
@@ -27,12 +28,14 @@ public class OverStim : MonoBehaviour
     [Header("Stimulation Visual settings")]
     [SerializeField] private AnimationCurve focusDistanceCurve; // Needed a curve to handle focus distance due to it being exponential
     [SerializeField] private AnimationCurve vignetteCurve; // Needed a curve to handle vignette because it should increase rapidly at 100%
+    [SerializeField] private AnimationCurve beepCurve;
     // ADJUSTMENTS
     private ChromaticAberration CA;
     private LensDistortion LD;
     private Vignette VN;
     private DepthOfField DOF;
     private Bloom BL;
+    private ColorAdjustments CAD;
     // PRIVATE VARIABLES
     private float startFOV = 0;
     private bool inGreenZone = false;
@@ -96,7 +99,7 @@ public class OverStim : MonoBehaviour
             stimulationPercentage += addStimulation * Time.deltaTime * addStimulationSpeed; // Apply stimulation
         }
         
-        stimulationPercentage = Mathf.Clamp(stimulationPercentage, 0f, 100f); // Clamp stimulationn
+        stimulationPercentage = Mathf.Clamp(stimulationPercentage, 0f, 100f); // Clamp stimulation
     }
 
     
@@ -114,7 +117,7 @@ public class OverStim : MonoBehaviour
             CA.intensity.value = Mathf.Lerp(s / 100, CA.intensity.value, 0.9f); // Colour Aberration
             LD.intensity.value = (s / 100) * 0.5f; // Lens Distortion
             VN.intensity.value = Mathf.Lerp(vignetteCurve.Evaluate(s / 100), VN.intensity.value, 0.9f); // Vignette
-            DOF.focusDistance.value = Mathf.Lerp(focusDistanceCurve.Evaluate(s / 100) * 100, DOF.focusDistance.value, 0.9f); // Depth of field
+            DOF.focusDistance.value = focusDistanceCurve.Evaluate(s / 100) * 100; // Depth of field
         }
         
         // Camera adjustments (only apply with a stimulation of >50%)
@@ -145,14 +148,21 @@ public class OverStim : MonoBehaviour
         reverbFilter.dryLevel = 0 - (height * 35f);
         echoFilter.wetMix = stimulationPercentage / 100f;
         lowPassFilter.cutoffFrequency = ((stimulationPercentage * -1f) + 100f) * 220f;
+        beep.volume = beepCurve.Evaluate(stimulationPercentage / 100f);
     }
     
     private void Respawn()
     {
         if (stimulationPercentage == 100)
         {
-            playerController.Respawn();
-            stimulationPercentage = 0;
+            globalVolume.profile.TryGet(out CAD);
+            CAD.postExposure.value -= 10f * Time.deltaTime;
+            if (CAD.postExposure.value < -15f)
+            {
+                playerController.Respawn();
+                stimulationPercentage = 0;
+                CAD.postExposure.value = 0;
+            }
         }
     }
 }
