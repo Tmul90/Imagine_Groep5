@@ -66,6 +66,8 @@ public class PlayerController : MonoBehaviour
         // TODO move to cursor script that flips it on and off
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        
+        spawnPoint = transform.position;
     }
 
 

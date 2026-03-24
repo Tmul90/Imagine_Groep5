@@ -8,7 +8,10 @@ public class OverStim : MonoBehaviour
     [Header("References")]
     [SerializeField] private Volume globalVolume;
     public GameObject player;
-    [SerializeField] private AudioReverbFilter reverbFilter;
+    [SerializeField] private GameObject audioSource;
+    private AudioEchoFilter echoFilter;
+    private AudioLowPassFilter lowPassFilter;
+    private AudioReverbFilter reverbFilter;
     private PlayerController playerController;
     public GameObject world; // The GameObject that is a (far) parent of ALL the greenzones, other greenzones won't work
     private Camera cam;
@@ -38,6 +41,9 @@ public class OverStim : MonoBehaviour
     private void Awake()
     {
         GetGreenZones();
+        reverbFilter = audioSource.GetComponent<AudioReverbFilter>();
+        echoFilter = audioSource.GetComponent<AudioEchoFilter>();
+        lowPassFilter =  audioSource.GetComponent<AudioLowPassFilter>();
         cam = Camera.main;
         startFOV = cam.fieldOfView;
         shake = cam.GetComponent<CameraShake>();
@@ -137,6 +143,8 @@ public class OverStim : MonoBehaviour
     private void AuditoryFeedback(float height)
     {
         reverbFilter.dryLevel = 0 - (height * 35f);
+        echoFilter.wetMix = stimulationPercentage / 100f;
+        lowPassFilter.cutoffFrequency = ((stimulationPercentage * -1f) + 100f) * 220f;
     }
     
     private void Respawn()
