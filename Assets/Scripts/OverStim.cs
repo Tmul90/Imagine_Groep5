@@ -8,12 +8,12 @@ public class OverStim : MonoBehaviour
     [Header("References")]
     [SerializeField] private Volume globalVolume;
     public GameObject player;
-    [SerializeField] private Terrain terrain;
     [SerializeField] private AudioReverbFilter reverbFilter;
     private PlayerController playerController;
-    public GreenZones greenZones;
+    public GameObject world; // The GameObject that is a (far) parent of ALL the greenzones, other greenzones won't work
     private Camera cam;
     private CameraShake shake;
+    private GreenZones[] greenZones;
     // VARIABLES
     public float stimulationPercentage = 0f; // Should be between 0 and 100
     [Header("Stimulation settings")]
@@ -32,31 +32,52 @@ public class OverStim : MonoBehaviour
     private Bloom BL;
     // PRIVATE VARIABLES
     private float startFOV = 0;
+    private bool inGreenZone = false;
 
     
     private void Awake()
     {
+        GetGreenZones();
         cam = Camera.main;
         startFOV = cam.fieldOfView;
         shake = cam.GetComponent<CameraShake>();
         playerController = player.GetComponent<PlayerController>();
     }
+
+    private void GetGreenZones()
+    {
+        greenZones = world.GetComponentsInChildren<GreenZones>();
+        print(greenZones);
+    }
     
     
     private void Update()
     {
+        CheckGreenZones();
         AddStimulation();
         VisualFeedback();
         Respawn();
     }
 
+    private void CheckGreenZones()
+    {
+        inGreenZone = false;
+        foreach (GreenZones gz in greenZones)
+        {
+            if (gz.inGreenZone)
+            {
+                inGreenZone = true;
+                break;
+            }
+        }
+    }
     
     private void AddStimulation()
     {
-        var playerHeight = player.transform.position.y - terrain.SampleHeight(player.transform.position); // Get player height
+        var playerHeight = player.transform.position.y - world.transform.position.y;
         AuditoryFeedback(playerHeight);
         
-        if (greenZones.inGreenZone)
+        if (inGreenZone)
             // In greenzone
             stimulationPercentage -= stimulationRecoverySpeed * Time.deltaTime;
         else
@@ -107,7 +128,7 @@ public class OverStim : MonoBehaviour
         
         // Set bloom when entering a greenzone
         globalVolume.profile.TryGet(out BL);
-        if (BL != null && greenZones.inGreenZone)
+        if (BL != null && inGreenZone)
             BL.intensity.value = Mathf.Lerp(50f, BL.intensity.value, 0.9f);
         else
             BL.intensity.value = Mathf.Lerp(0f, BL.intensity.value, 0.9f);
@@ -116,7 +137,6 @@ public class OverStim : MonoBehaviour
     private void AuditoryFeedback(float height)
     {
         reverbFilter.dryLevel = 0 - (height * 35f);
-        print(height);
     }
     
     private void Respawn()
