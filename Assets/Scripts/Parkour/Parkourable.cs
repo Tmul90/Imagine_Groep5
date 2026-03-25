@@ -7,18 +7,18 @@ public abstract class Parkourable : MonoBehaviour
     [SerializeField] protected float interactionRange = 1.5f;
     [SerializeField] protected bool isEnabled = true;
     
-    public abstract ParkourType Type { get; }
+    internal abstract ParkourType Type { get; }
 
-    public abstract void Execute(ParkourController player);
+    internal abstract void Execute(ParkourController player);
     
-    public virtual void OnPlayerInRange(ParkourController player) { }
+    internal virtual void OnPlayerInRange(ParkourController player) { }
     
-    public virtual void OnPlayerExitRange(ParkourController player) { }
+    internal virtual void OnPlayerExitRange(ParkourController player) { }
     
-    public bool IsEnabled => isEnabled;
-    public float InteractionRange => interactionRange;
+    internal bool IsEnabled => isEnabled;
+    internal float InteractionRange => interactionRange;
     
-    public virtual Vector3 GetInteractionPoint() => transform.position;
+    internal virtual Vector3 GetInteractionPoint(Transform playerTransform = null) => transform.position;
 
     protected virtual void OnDrawGizmosSelected()
     {
@@ -27,4 +27,4 @@ public abstract class Parkourable : MonoBehaviour
     }
 }
 
-public enum ParkourType { Vault, Climb, Mantle }
+public enum ParkourType { Vaultable, Climbable, Mantleable, Hangable }

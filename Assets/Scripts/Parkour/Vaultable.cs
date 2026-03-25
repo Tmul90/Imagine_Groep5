@@ -6,9 +6,9 @@ public class Vaultable : Parkourable
     [SerializeField] private float vaultSpeed = 5f;
     [SerializeField] private Transform vaultOverPoint;
 
-    public override ParkourType Type => ParkourType.Vault;
+    internal override ParkourType Type => ParkourType.Vaultable;
 
-    public override Vector3 GetInteractionPoint()
+    internal override Vector3 GetInteractionPoint(Transform playerTransform = null)
     {
         if (vaultOverPoint is not null) return vaultOverPoint.position;
         
@@ -17,8 +17,8 @@ public class Vaultable : Parkourable
             ? new Vector3(transform.position.x, collider.bounds.max.y, transform.position.z)
             : transform.position;
     }
-    public override void Execute(ParkourController player)
+    internal override void Execute(ParkourController player)
     {
-        player.PerformVault(GetInteractionPoint(), vaultSpeed);
+        player.PerformVault(GetInteractionPoint(player.transform), vaultSpeed);
     }
 }
