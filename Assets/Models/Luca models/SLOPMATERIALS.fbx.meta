@@ -3,72 +3,7 @@ guid: a655d6aa7e2011e4d9c3df4666b8ffd8
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: A_STEEN_zwart
-    second: {fileID: 2100000, guid: a851ef25555df7191808ff536de8fa3a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: A_donker_STEEN
-    second: {fileID: 2100000, guid: 96ae9782fbc0602d5a43cb4e3f1dc83e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: A_licht_STEEN
-    second: {fileID: 2100000, guid: e27a2aa516332499faec8f304520a7a1, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: B_Metaal_Licht
-    second: {fileID: 2100000, guid: cfd2c4c4eb19d7128bd543cc4c33afef, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: B_Metaal_Zwart
-    second: {fileID: 2100000, guid: 81e2f189b0990297f96402c94772551f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: B_metaal_Donker
-    second: {fileID: 2100000, guid: 210eb64c6b8754772ad9d4654bd90141, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: GLASS
-    second: {fileID: 2100000, guid: 772148755ecda37ff886ce815a803c7d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: REDHIGHLIGHTED
-    second: {fileID: 2100000, guid: b1d6da0d8438f69bbb64ccc66f0e8dba, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: StoplichtOranje
-    second: {fileID: 2100000, guid: 324fdc67498e7e7cd86e5432c76736fe, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: StoplichtRood
-    second: {fileID: 2100000, guid: 79eb24b6d2fec29eaaa4ca3a215ae07e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: WHITEPLASTIC
-    second: {fileID: 2100000, guid: 90b3c8dcc0ed9f13f9ba81461a38a739, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: WOOD
-    second: {fileID: 2100000, guid: 84412a1c00a32fa8da27dba3f1206aca, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: stoplichtGroen
-    second: {fileID: 2100000, guid: 7c4fb5f718b488ca8b1235674e6a19a4, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
