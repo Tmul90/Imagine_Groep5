@@ -59,6 +59,13 @@ public class PlayerController : Singleton<PlayerController>
         MovePlayer();
         GroundCheck();
         ApplyJumpPhysics();
+        
+        
+        // DEBUG
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Respawn();
+        }
     }
 
     internal float GetHeight()
@@ -79,6 +86,8 @@ public class PlayerController : Singleton<PlayerController>
         // TODO move to cursor script that flips it on and off
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        
+        spawnPoint = transform.position;
     }
 
     private void MovePlayer()
