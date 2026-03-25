@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Area : MonoBehaviour
+public class OasisCollisionChecker : MonoBehaviour
 {
     public bool collide = false;
     public GameObject otherObject;
@@ -9,10 +9,6 @@ public class Area : MonoBehaviour
     {
         collide = true;
         otherObject = other.gameObject;
-        /*
-        if(otherObject != null)
-            print(otherObject);
-        */
     }
 
     private void OnTriggerExit(Collider other)

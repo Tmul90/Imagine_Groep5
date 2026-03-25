@@ -17,7 +17,7 @@ public class OverStim : MonoBehaviour
     public GameObject world; // The GameObject that is a (far) parent of ALL the greenzones, other greenzones won't work
     private Camera cam;
     private CameraShake shake;
-    private GreenZones[] greenZones;
+    //private GreenZones[] greenZones;
     // VARIABLES
     public float stimulationPercentage = 0f; // Should be between 0 and 100
     [Header("Stimulation settings")]
@@ -55,8 +55,8 @@ public class OverStim : MonoBehaviour
 
     private void GetGreenZones()
     {
-        greenZones = world.GetComponentsInChildren<GreenZones>();
-        print(greenZones);
+        //greenZones = world.GetComponentsInChildren<GreenZones>();
+        //print(greenZones);
     }
     
     
@@ -71,14 +71,14 @@ public class OverStim : MonoBehaviour
     private void CheckGreenZones()
     {
         inGreenZone = false;
-        foreach (GreenZones gz in greenZones)
+        /*foreach (GreenZones gz in greenZones)
         {
             if (gz.inGreenZone)
             {
                 inGreenZone = true;
                 break;
             }
-        }
+        }*/
     }
     
     private void AddStimulation()
@@ -159,7 +159,7 @@ public class OverStim : MonoBehaviour
             CAD.postExposure.value -= 10f * Time.deltaTime;
             if (CAD.postExposure.value < -15f)
             {
-                playerController.Respawn();
+                //playerController.Respawn();
                 stimulationPercentage = 0;
                 CAD.postExposure.value = 0;
             }

@@ -20,13 +20,14 @@ public class JumpManager : MonoBehaviour
             transform.position.z
         );
         
-        Debug.Log(PlayerController.Instance.GetHeight());
+        //Debug.Log(PlayerController.Instance.GetHeight());
         var hits = Physics.OverlapBox(
             _feetPosition,
             boxSize * 0.5f,
             transform.rotation,
             groundLayer
         );
+        print(hits.Length);
 
         canCollide = hits.Length > 0;
         otherObject = canCollide ? hits[0].gameObject : null;
