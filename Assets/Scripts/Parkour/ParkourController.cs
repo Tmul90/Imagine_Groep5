@@ -182,6 +182,7 @@ public class ParkourController : MonoBehaviour
         
         var capsuleHeight = GetComponent<CapsuleCollider>().height * transform.localScale.y;
         
+        // TODO make sure player wont go down when mantling
         var hangPos = new Vector3(transform.position.x, ledgePoint.y - capsuleHeight * 0.3f, transform.position.z);
         yield return MoveToPoint(transform.position, hangPos, speed);
         
