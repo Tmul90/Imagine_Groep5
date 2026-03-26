@@ -18,6 +18,7 @@ public class PlayerController : Singleton<PlayerController>
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float runSpeed = 7f;
+    [SerializeField] private KeyCode runKey = KeyCode.LeftShift;
     
     [Header("Jump")]
     [SerializeField] private float jumpForce = 10f;
@@ -94,8 +95,10 @@ public class PlayerController : Singleton<PlayerController>
     private void MovePlayer()
     {
         var movement = (transform.right * _moveHorizontal + transform.forward * _moveForward).normalized;
-
-        var targetVelocity = movement * moveSpeed;
+        
+        
+        var speed = Input.GetKey(runKey) ? runSpeed : moveSpeed;
+        var targetVelocity = movement * speed;
 
         var velocity = _rb.linearVelocity;
         velocity.x = targetVelocity.x;
