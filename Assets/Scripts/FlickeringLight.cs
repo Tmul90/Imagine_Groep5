@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-[ExecuteInEditMode]
+//[ExecuteInEditMode]
 [RequireComponent(typeof(Light))]
 public class FlickeringLight : MonoBehaviour
 {
