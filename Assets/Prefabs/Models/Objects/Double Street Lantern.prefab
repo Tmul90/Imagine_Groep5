@@ -144,6 +144,7 @@ GameObject:
   - component: {fileID: 7530071412083685177}
   - component: {fileID: 5465366355815167656}
   - component: {fileID: 769885532313481328}
+  - component: {fileID: 6567827652220442921}
   m_Layer: 0
   m_Name: Spot Light (1)
   m_TagString: Untagged
@@ -177,7 +178,7 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 0.6509804, g: 0.7764706, b: 0.7372549, a: 1}
-  m_Intensity: 127.6665
+  m_Intensity: 30
   m_Range: 10
   m_SpotAngle: 171.03474
   m_InnerSpotAngle: 118.90212
@@ -268,6 +269,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flickerStrength: 0.5
   flickerDuration: 0.1
+--- !u!114 &6567827652220442921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4396224545775493814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anisotropy: 0.25
+  scattering: 1
+  radius: 0.2
 --- !u!1 &9117006909051394363
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,6 +296,7 @@ GameObject:
   - component: {fileID: 2997940536219751553}
   - component: {fileID: 3977974034784428502}
   - component: {fileID: 978248077316237269}
+  - component: {fileID: 7184089363811021951}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
@@ -313,7 +330,7 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 0.6509804, g: 0.7764706, b: 0.7372549, a: 1}
-  m_Intensity: 127.6665
+  m_Intensity: 30
   m_Range: 10
   m_SpotAngle: 171.03474
   m_InnerSpotAngle: 118.90212
@@ -404,3 +421,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flickerStrength: 0.5
   flickerDuration: 0.1
+--- !u!114 &7184089363811021951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9117006909051394363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anisotropy: 0.25
+  scattering: 1
+  radius: 0.2

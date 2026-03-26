@@ -308,6 +308,7 @@ MonoBehaviour:
   spawnPoint: {x: 0, y: 0, z: 0}
   moveSpeed: 5
   runSpeed: 7
+  runKey: 304
   jumpForce: 10
   fallMultiplier: 2.5
   ascendMultiplier: 2
