@@ -71,7 +71,7 @@ Material:
     - _BumpScale: 1
     - _CloudAnisotropy: 0.5
     - _CloudBaseHeight: 0.188
-    - _CloudCoverage: 0.667
+    - _CloudCoverage: 0.949
     - _CloudLightIntensity: 2.5
     - _CloudOffsetX: 0
     - _CloudRotationX: 0
