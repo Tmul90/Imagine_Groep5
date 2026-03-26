@@ -17,7 +17,8 @@ public class PlayerController : Singleton<PlayerController>
     
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 5f;
-
+    [SerializeField] private float runSpeed = 7f;
+    
     [Header("Jump")]
     [SerializeField] private float jumpForce = 10f;
     [SerializeField] private float fallMultiplier = 2.5f; // Multiplies gravity when falling down
@@ -81,7 +82,7 @@ public class PlayerController : Singleton<PlayerController>
         jumpManager = GetComponent<JumpManager>();
         jumpManager.groundLayer = groundLayer;
 
-        // OverStim.OnRespawn += Respawn;
+        StimulationManager.OnRespawn += Respawn;
 
         // TODO move to cursor script that flips it on and off
         Cursor.lockState = CursorLockMode.Locked;

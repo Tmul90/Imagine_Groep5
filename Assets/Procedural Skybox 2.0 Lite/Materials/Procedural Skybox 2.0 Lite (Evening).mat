@@ -71,7 +71,7 @@ Material:
     - _BumpScale: 1
     - _CloudAnisotropy: 0.5
     - _CloudBaseHeight: 0.188
-    - _CloudCoverage: 1
+    - _CloudCoverage: 0.667
     - _CloudLightIntensity: 2.5
     - _CloudOffsetX: 0
     - _CloudRotationX: 0
@@ -91,38 +91,38 @@ Material:
     - _GlossyReflections: 1
     - _GroundPower: 1
     - _HorizonCurvature: 0.1
-    - _HorizonHeight: -0.154
-    - _HorizonSharpness: 0.102
+    - _HorizonHeight: -0.052
+    - _HorizonSharpness: 0
     - _Metallic: 0
     - _Mode: 0
     - _MoonSize: 0
     - _OcclusionStrength: 1
     - _Overcast: 0
     - _Parallax: 0.02
-    - _SkyExposure: 0.97
-    - _SkySaturation: 1.02
+    - _SkyExposure: 1.12
+    - _SkySaturation: 1.32
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _StarDensity: 132
+    - _StarDensity: 167
     - _StarHeight: -1
-    - _StarIntensity: 0.15
+    - _StarIntensity: 0.225
     - _StarSeed: 0
     - _SunConvergence: 9.12
     - _SunFlareIntensity: 0.1
     - _SunFlareLength: 0
     - _SunFlareRayCount: 8
-    - _SunHaze: 0.129
-    - _SunSize: 0.067
+    - _SunHaze: 0.174
+    - _SunSize: 0.124
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _CloudTint: {r: 0.9335477, g: 0.99586165, b: 1, a: 1}
+    - _CloudTint: {r: 1, g: 0.6082004, b: 0.96549386, a: 1}
     - _CloudWindDirection: {r: 0.5, g: 0.2, b: 0.3, a: 0.7}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _GroundColor: {r: 0.89649475, g: 0.63735884, b: 0.27628204, a: 1}
-    - _HorizonColor: {r: 0.90295583, g: 0.73409575, b: 0.41937983, a: 1}
-    - _ZenithColor: {r: 0.62326884, g: 0.6894051, b: 0.6507503, a: 1}
+    - _GroundColor: {r: 1, g: 0.5849056, b: 0, a: 1}
+    - _HorizonColor: {r: 1, g: 0.65040654, b: 0, a: 1}
+    - _ZenithColor: {r: 0.35600537, g: 0, b: 0.032279894, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
