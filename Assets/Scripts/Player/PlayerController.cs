@@ -43,6 +43,8 @@ public class PlayerController : Singleton<PlayerController>
     
     private Collider _collider;
     
+    private Animator _camController;
+    
     private void Start() =>
         Init();
 
@@ -90,12 +92,18 @@ public class PlayerController : Singleton<PlayerController>
         Cursor.visible = false;
         
         spawnPoint = transform.position;
+        
+        _camController = Camera.main.GetComponent<Animator>();
     }
 
     private void MovePlayer()
     {
         var movement = (transform.right * _moveHorizontal + transform.forward * _moveForward).normalized;
         
+        if (_camController is not null)
+        {
+            _camController.SetBool("Walking", movement != Vector3.zero);
+        }
         
         var speed = Input.GetKey(runKey) ? runSpeed : moveSpeed;
         var targetVelocity = movement * speed;

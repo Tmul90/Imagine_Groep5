@@ -5,19 +5,19 @@ public class CameraController : MonoBehaviour
 {
     [Header("Camera Rotation")]
     [SerializeField] private float mouseSensitivity = 2f;
+
+    [SerializeField] private Transform _cameraTransform;
     
     private Vector2 _cameraRotation = Vector2.zero;
-    private Transform _cameraTransform;
 
     private void Update() { RotateCamera(); }
 
-    private void Awake()
-    {
-        if (Camera.main is not null) { _cameraTransform = Camera.main.transform; }
-    }
-    
     private void RotateCamera()
     {
+        if (_cameraTransform is null)
+        {
+            Debug.LogWarning("_cameraTransform not attached!");
+        }
         var horizontalRotation = Input.GetAxis("Mouse X") * mouseSensitivity;
         var verticalRotation = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
