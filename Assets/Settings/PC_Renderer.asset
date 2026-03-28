@@ -69,7 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Active: 1
   settings:
-    renderPassEvent: 1000
+    renderPassEvent: 600
     outlineThickness: 2
     outlineColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &4977716767098283156
@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Name: FullScreenPassRendererFeature
   m_EditorClassIdentifier: 
   m_Active: 1
-  injectionPoint: 550
+  injectionPoint: 450
   fetchColorBuffer: 1
   requirements: 0
   passMaterial: {fileID: 2100000, guid: ae970643c5e123f1e9e14235976003ea, type: 2}

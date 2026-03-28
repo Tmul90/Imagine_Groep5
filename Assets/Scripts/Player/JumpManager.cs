@@ -27,7 +27,6 @@ public class JumpManager : MonoBehaviour
             transform.rotation,
             groundLayer
         );
-        print(hits.Length);
 
         canCollide = hits.Length > 0;
         otherObject = canCollide ? hits[0].gameObject : null;

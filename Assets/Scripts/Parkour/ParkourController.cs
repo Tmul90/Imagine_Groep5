@@ -42,6 +42,8 @@ public class ParkourController : MonoBehaviour
         if (_detectionFrame++ % 3 == 0) 
             DetectParkourable();
 
+        SpriteAnimation.Instance.PlayAnimation(_currentTarget is null ? -1 : 1);
+        
         if (_currentTarget is not null && Input.GetKey(parkourKeyCode)) 
             _currentTarget.Execute(this);
     }
