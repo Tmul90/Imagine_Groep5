@@ -6751,6 +6751,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8731286204995202338, guid: 2ae74ba8ada7b455d91b433e74a906c4, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14556,6 +14560,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Big Building 3 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3702603464296178687, guid: 96ebbdd90d7764476b5b1875e1482053, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -39.46566
+      objectReference: {fileID: 0}
+    - target: {fileID: 3702603464296178687, guid: 96ebbdd90d7764476b5b1875e1482053, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.331217
+      objectReference: {fileID: 0}
     - target: {fileID: 7901897251909763861, guid: 96ebbdd90d7764476b5b1875e1482053, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -20009,7 +20021,7 @@ PrefabInstance:
     - target: {fileID: 3515294377106023864, guid: 30ce928f0a1a9e10d9ee29752c9c31ed, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: d0d83efa12724eef5a5c429729f7fa86, type: 2}
+      objectReference: {fileID: 2100000, guid: 0d70c6cba01d80472854a6397fdc4ba6, type: 2}
     - target: {fileID: 3544801313716713410, guid: 30ce928f0a1a9e10d9ee29752c9c31ed, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -25209,7 +25221,7 @@ PrefabInstance:
     - target: {fileID: 8279933821398169997, guid: 0ce86ef8b0d170e45ab674596cd46e9f, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 13400000, guid: 4502898367920af45854bc6a5965403f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -145233,6 +145245,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6334611970989166242}
     m_Modifications:
+    - target: {fileID: 1682841442015098875, guid: 2430860a8eb37513a9742062560981ee, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 772148755ecda37ff886ce815a803c7d, type: 2}
     - target: {fileID: 4599778067397995071, guid: 2430860a8eb37513a9742062560981ee, type: 3}
       propertyPath: m_Name
       value: Building
@@ -160530,6 +160546,18 @@ PrefabInstance:
     - target: {fileID: 366405797728112877, guid: 2ae74ba8ada7b455d91b433e74a906c4, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189503761416167102, guid: 2ae74ba8ada7b455d91b433e74a906c4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189503761416167102, guid: 2ae74ba8ada7b455d91b433e74a906c4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0007
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189503761416167102, guid: 2ae74ba8ada7b455d91b433e74a906c4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0061
       objectReference: {fileID: 0}
     - target: {fileID: 2482997312489910495, guid: 2ae74ba8ada7b455d91b433e74a906c4, type: 3}
       propertyPath: m_Material
