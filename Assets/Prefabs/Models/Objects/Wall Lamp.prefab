@@ -267,5 +267,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8899d57e9e55ef28b1694fb43c0890a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flickerStrength: 0.7
+  flickerStrength: 0.4
   flickerDuration: 0.2
