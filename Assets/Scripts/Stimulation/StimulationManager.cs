@@ -1,0 +1,48 @@
+using System;
+using UnityEngine;
+using Util;
+
+[RequireComponent(typeof(StimulationVisualManager))]
+[RequireComponent(typeof(StimulationAuditoryManager))]
+public class StimulationManager : Singleton<StimulationManager>
+{
+    public static event Action OnRespawn;
+    public static event Action<float> OnStimulationChanged;
+
+    [Header("Stimulation Settings")]
+    [SerializeField] private float stimulationPercentage;
+    [SerializeField] private AnimationCurve stimulationCurve;
+    [SerializeField] private Vector2 stimulationHeightBounds;
+    [SerializeField] private float addStimulationSpeed = 5f;
+    [SerializeField] private float stimulationRecoverySpeed = 10f;
+
+    private void Update()
+    {
+        AddStimulation();
+        OnStimulationChanged?.Invoke(stimulationPercentage);
+        SetRespawnCallback();
+    }
+    
+    private void AddStimulation()
+    {
+        if (OasisManager.Instance.inGreenZone)
+            stimulationPercentage -= stimulationRecoverySpeed * Time.deltaTime;
+        else
+        {
+            var playerHeight = PlayerController.Instance.GetHeight();
+            var clampedHeight = Mathf.Clamp(playerHeight, stimulationHeightBounds.x, stimulationHeightBounds.y);
+            var curvePosition = (clampedHeight - stimulationHeightBounds.x) / (stimulationHeightBounds.y - stimulationHeightBounds.x);
+            stimulationPercentage += stimulationCurve.Evaluate(curvePosition) * Time.deltaTime * addStimulationSpeed;
+        }
+        
+        stimulationPercentage = Mathf.Clamp(stimulationPercentage, 0f, 100f);
+    }
+    
+    
+    private void SetRespawnCallback()
+    {
+        if (stimulationPercentage < 100.0f) return;
+        OnRespawn?.Invoke();
+        stimulationPercentage = 0;
+    }
+}
