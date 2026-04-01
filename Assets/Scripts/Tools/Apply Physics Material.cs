@@ -35,7 +35,7 @@ public class PhysicsMaterialApplier : MonoBehaviour
             Rigidbody rb = col.GetComponent<Rigidbody>();
             Rigidbody parentRB = col.GetComponentInParent<Rigidbody>();
 
-            if (rb != null || col.isTrigger || parentRB != null)
+            if (parentRB != null || col.isTrigger || rb != null)
             {
                 if (col.sharedMaterial != null)
                 {
@@ -50,6 +50,12 @@ public class PhysicsMaterialApplier : MonoBehaviour
                     col.sharedMaterial = material;
                     applied++;
                 }
+            }
+
+            if (col.gameObject.layer == LayerMask.NameToLayer("Player"))
+            {
+                Debug.Log("Found Player");
+                col.sharedMaterial = material;
             }
 
             EditorUtility.SetDirty(col);
@@ -77,7 +83,7 @@ public class PhysicsMaterialApplier : MonoBehaviour
                 Rigidbody rb = col.GetComponent<Rigidbody>();
                 Rigidbody parentRB = col.GetComponentInParent<Rigidbody>();
                 
-                if (rb != null || col.isTrigger || parentRB != null)
+                if (parentRB != null || col.isTrigger || rb != null)
                 {
                     if (col.sharedMaterial != null)
                     {
@@ -93,7 +99,14 @@ public class PhysicsMaterialApplier : MonoBehaviour
                         applied++;
                     }
                 }
+                
+                if (col.gameObject.layer == LayerMask.NameToLayer("Player"))
+                {
+                    Debug.Log("Found Player");
+                    col.sharedMaterial = material;
+                }
             }
+            
 
             PrefabUtility.SaveAsPrefabAsset(prefab, path);
             PrefabUtility.UnloadPrefabContents(prefab);

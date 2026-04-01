@@ -155,6 +155,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: modular door 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5525750544852214270, guid: 4432877c8b860be609154cc99b85074d, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 4502898367920af45854bc6a5965403f, type: 2}
     - target: {fileID: 7809229208354464046, guid: 4432877c8b860be609154cc99b85074d, type: 3}
       propertyPath: m_LocalScale.y
       value: 79.999985
