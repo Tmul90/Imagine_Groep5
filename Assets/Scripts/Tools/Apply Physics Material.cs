@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 using UnityEditor;
 
 public class PhysicsMaterialApplier : MonoBehaviour
@@ -114,4 +114,4 @@ public class PhysicsMaterialApplier : MonoBehaviour
 
         Debug.Log($"Prefabs → Applied: {applied}, Removed: {removed}");
     }
-}
+}*/

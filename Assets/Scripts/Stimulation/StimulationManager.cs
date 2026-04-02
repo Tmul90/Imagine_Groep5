@@ -21,6 +21,12 @@ public class StimulationManager : Singleton<StimulationManager>
         AddStimulation();
         OnStimulationChanged?.Invoke(stimulationPercentage);
         SetRespawnCallback();
+        
+        // DEBUG
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            stimulationPercentage = 100f;
+        }
     }
     
     private void AddStimulation()
