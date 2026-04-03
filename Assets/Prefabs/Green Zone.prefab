@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3741807298052004907}
   - component: {fileID: 6548672731867066501}
   - component: {fileID: 845303526351766865}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Green Zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3939141662224257079}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spawnpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

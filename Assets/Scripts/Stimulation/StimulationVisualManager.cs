@@ -47,7 +47,7 @@ public class StimulationVisualManager : Singleton<StimulationVisualManager>
             CA.intensity.value = Mathf.Lerp(s / 100, CA.intensity.value, 0.9f); // Colour Aberration
             LD.intensity.value = (s / 100) * 0.5f; // Lens Distortion
             VN.intensity.value = Mathf.Lerp(vignetteCurve.Evaluate(s / 100), VN.intensity.value, 0.9f); // Vignette
-            DOF.focusDistance.value = Mathf.Lerp(focusDistanceCurve.Evaluate(s / 100) * 100, DOF.focusDistance.value, 0.9f); // Depth of field
+            DOF.focusDistance.value = focusDistanceCurve.Evaluate(s / 100) * 100; // Depth of field
             
             // Fade to black (only apply with a stimulation of > 955)
             if (s > 95)
