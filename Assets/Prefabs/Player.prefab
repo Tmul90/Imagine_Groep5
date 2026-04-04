@@ -261,7 +261,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5552376964741310126}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 3
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -361,15 +361,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {x: 0, y: 0, z: 0}
-  moveSpeed: 5
-  runSpeed: 7
+  moveSpeed: 4
+  runSpeed: 6
   runKey: 304
   jumpForce: 10
   fallMultiplier: 2.5
   ascendMultiplier: 2
+  moveSounds:
+  - {fileID: 8300000, guid: 9773bc0bb394366259998fcc6328d5e9, type: 3}
+  - {fileID: 8300000, guid: 2b3ef5e2dc2b56e0581ab87a02b6d464, type: 3}
+  - {fileID: 8300000, guid: 8225ed794c96e04b987757e4c010c436, type: 3}
+  - {fileID: 8300000, guid: f5056660e1951e1c497bdc420669a872, type: 3}
+  - {fileID: 8300000, guid: 66eda531abc58b8dea1208198ec9ac2e, type: 3}
+  - {fileID: 8300000, guid: 937c6a72bf211ed38bdc8fda3b9236b1, type: 3}
+  - {fileID: 8300000, guid: 9eabdea05870eaf358c94545dc908765, type: 3}
+  - {fileID: 8300000, guid: 91bc521379078fe79bd7ebe82cb3e181, type: 3}
+  - {fileID: 8300000, guid: bd64c770b62fdbab0b30397cb20fabe2, type: 3}
+  - {fileID: 8300000, guid: b7e14c7792ba2db47b3aae34e05d4d13, type: 3}
+  - {fileID: 8300000, guid: 98224b6659641e8b5abb60eae877de93, type: 3}
+  - {fileID: 8300000, guid: 05aba8efafe9dec419ddfa7dd619ca58, type: 3}
+  moveSoundSpeed: 0.5
+  sprintSoundSpeed: 0.25
+  moveSoundVolume: 1
+  jumpSound: {fileID: 8300000, guid: 9b1251bca1cbe6e94a6abb1c0dd29783, type: 3}
+  jumpSoundVolume: 0.3
+  randomPitch: 0.1
+  fallSound: {fileID: 8300000, guid: f8bd30a59b23661b7ba22fda4b5841c5, type: 3}
+  fallSoundVolume: 0.4
+  fallSoundVelocityThreshold: 12
   groundLayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 65
 --- !u!114 &5280421042839322300
 MonoBehaviour:
   m_ObjectHideFlags: 0

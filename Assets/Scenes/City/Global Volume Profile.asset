@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06437c1ff663d574d9447842ba0a72e4, type: 3}
   m_Name: ScreenSpaceLensFlare
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.17
+    m_Value: 0.01
   tintColor:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
@@ -156,7 +156,7 @@ MonoBehaviour:
     m_Value: 0
   density:
     m_OverrideState: 1
-    m_Value: 0.214
+    m_Value: 0.079
   attenuationDistance:
     m_OverrideState: 0
     m_Value: 128
@@ -322,7 +322,7 @@ MonoBehaviour:
     m_Value: 27
   colorFilter:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 0.93152434, b: 0.9536417, a: 1}
+    m_Value: {r: 0.98354006, g: 0.9706584, b: 0.9706584, a: 1}
   hueShift:
     m_OverrideState: 1
     m_Value: 6
@@ -558,13 +558,40 @@ MonoBehaviour:
   satVsSat:
     m_OverrideState: 1
     m_Value:
-      <length>k__BackingField: 0
+      <length>k__BackingField: 3
       m_Loop: 0
       m_ZeroValue: 0.5
       m_Range: 1
       m_Curve:
         serializedVersion: 2
-        m_Curve: []
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0.47396177
+          inSlope: 0.032414395
+          outSlope: 0.032414395
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.5990035
+          value: 0.53497374
+          inSlope: -0.36933762
+          outSlope: -0.36933762
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 0.37400144
+          inSlope: -1.1795027
+          outSlope: -1.1795027
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4

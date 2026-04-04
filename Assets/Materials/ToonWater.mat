@@ -92,16 +92,16 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _SurfaceDistortionAmount: 0.502
-    - _SurfaceNoiseCutoff: 0.402
+    - _SurfaceDistortionAmount: 1
+    - _SurfaceNoiseCutoff: 0.447
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DepthGradientDeep: {r: 0.26856968, g: 0.46157604, b: 0.81698984, a: 0.7490196}
-    - _DepthGradientShallow: {r: 0.6331246, g: 0.9063297, b: 1, a: 0.7254902}
+    - _DepthGradientDeep: {r: 0.17973292, g: 0.29569346, b: 0.24418356, a: 0.7764706}
+    - _DepthGradientShallow: {r: 0.41126266, g: 0.55583835, b: 0.6050556, a: 0.7254902}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FoamColor: {r: 1, g: 1, b: 1, a: 0.9490196}
     - _ShorelineColor: {r: 1, g: 1, b: 1, a: 1}
     - _SurfaceNoiseScroll: {r: 0.03, g: 0.03, b: 0, a: 0}
   m_BuildTextureStacks: []

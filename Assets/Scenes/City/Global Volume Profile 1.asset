@@ -82,10 +82,10 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.7332663
-          value: 0.701973
-          inSlope: 0.22091608
-          outSlope: 0.22091608
+          time: 0.6970025
+          value: 0.838204
+          inSlope: 1.1130886
+          outSlope: 1.1130886
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
@@ -359,7 +359,7 @@ MonoBehaviour:
   active: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 1.43
+    m_Value: 0.54
   tintColor:
     m_OverrideState: 1
     m_Value: {r: 1, g: 1, b: 1, a: 1}
@@ -395,7 +395,7 @@ MonoBehaviour:
     m_Value: 1.5
   streaksIntensity:
     m_OverrideState: 1
-    m_Value: 0.14
+    m_Value: 0.04
   streaksLength:
     m_OverrideState: 1
     m_Value: 0.284
@@ -441,7 +441,7 @@ MonoBehaviour:
     m_Value: 0
   density:
     m_OverrideState: 1
-    m_Value: 0.237
+    m_Value: 0.159
   attenuationDistance:
     m_OverrideState: 0
     m_Value: 128
