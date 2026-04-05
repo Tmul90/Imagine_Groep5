@@ -31,7 +31,7 @@ public class PlayerController : Util.Singleton<PlayerController>
     [SerializeField] private float moveSoundSpeed = 0.4f;
     [SerializeField] private float sprintSoundSpeed = 0.25f;
     [SerializeField] private float moveSoundVolume = 1f;
-    [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip[] jumpSounds;
     [SerializeField] private float jumpSoundVolume = 0.5f;
     [SerializeField] private float randomPitch = 0.3f;
     [SerializeField] private AudioClip fallSound;
@@ -149,7 +149,7 @@ public class PlayerController : Util.Singleton<PlayerController>
         _isGrounded = false;
         _groundCheckTimer = GroundCheckDelay;
         _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, jumpForce, _rb.linearVelocity.z);
-        SoundManager.Instance.PlaySoundClip(jumpSound, transform, jumpSoundVolume, false, randomPitch);
+        SoundManager.Instance.PlayRandomClip(jumpSounds, transform, jumpSoundVolume, false, randomPitch);
     }
     
     private void GroundCheck()

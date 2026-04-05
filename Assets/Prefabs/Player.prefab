@@ -383,7 +383,7 @@ MonoBehaviour:
   moveSoundSpeed: 0.5
   sprintSoundSpeed: 0.25
   moveSoundVolume: 1
-  jumpSound: {fileID: 8300000, guid: 9b1251bca1cbe6e94a6abb1c0dd29783, type: 3}
+  jumpSounds: []
   jumpSoundVolume: 0.3
   randomPitch: 0.1
   fallSound: {fileID: 8300000, guid: f8bd30a59b23661b7ba22fda4b5841c5, type: 3}
@@ -411,6 +411,9 @@ MonoBehaviour:
   parkourKeyCode: 304
   dropKeyCode: 306
   climbKeyCode: 32
+  parkourSounds: []
+  parkourSoundVolume: {x: -2, y: 0.3}
+  parkourSoundRandomPitch: 0.1
 --- !u!114 &1188654240622718336
 MonoBehaviour:
   m_ObjectHideFlags: 0
