@@ -17,7 +17,8 @@ namespace Sound
         /// <param name="volume">The volume level for the sound</param>
         /// <param name="loop">Loops the sound, be aware: clips have to be removed manually for them to stop</param>
         /// <param name="randomPitch">If not 0, applies a random pitch between 1-randomPitch and 1+randomPitch</param>
-        public void PlaySoundClip(AudioClip audioClip, Transform soundObjectSpawn, float volume, bool loop = false, float randomPitch = 0f)
+        /// <param name="basePitch">Sets a base pitch, normally this is 1</param>
+        public void PlaySoundClip(AudioClip audioClip, Transform soundObjectSpawn, float volume, bool loop = false, float randomPitch = 0f, float basePitch = 1f)
         {
             var clipLength = audioClip.length;
             var audioSource = Instantiate(soundObject, soundObjectSpawn);
@@ -29,7 +30,7 @@ namespace Sound
 
             if (randomPitch != 0f)
             {
-                audioSource.pitch = 1f + Random.Range(-randomPitch,randomPitch);
+                audioSource.pitch = basePitch + Random.Range(-randomPitch,randomPitch);
             }
             
             if (loop) {return;}
