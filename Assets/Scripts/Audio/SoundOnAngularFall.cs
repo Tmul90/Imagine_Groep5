@@ -26,6 +26,9 @@ public class Lantern : MonoBehaviour
         {
             SoundManager.Instance.PlaySoundClip(lanternSound, transform, lanternVolume, false, lanternRandomPitch);
             _fallen = true;
+            
+            // DEBUG, to know where sounds are coming from if they fall on their own
+            //print(transform.position.ToString() + transform.parent.name.ToString());
         }
         _previousAngularVelocity = vel;
     }

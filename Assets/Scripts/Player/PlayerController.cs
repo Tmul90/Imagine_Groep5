@@ -90,8 +90,12 @@ public class PlayerController : Util.Singleton<PlayerController>
         }
     }
 
+    // ReSharper disable Unity.PerformanceAnalysis
     internal float GetHeight()
-        { return _collider.bounds.min.y; }
+    {
+        if(_collider is null) {Debug.LogWarning("No collider found");return 0f;}
+        return _collider.bounds.min.y;
+    }
 
     internal void SetMovementEnabled(bool enabled) => _movementEnabled = enabled; 
 

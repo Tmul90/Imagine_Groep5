@@ -216,3 +216,5 @@ MonoBehaviour:
   rollingClip: {fileID: 8300000, guid: 48a8749c0fa352ab3a913cb4a00cbf06, type: 3}
   rollingVolume: 0.25
   rollingSpeedThreshold: 0.01
+  basePitch: 1
+  randomAddPitch: 0
