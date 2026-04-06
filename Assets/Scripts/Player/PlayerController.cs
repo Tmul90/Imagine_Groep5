@@ -188,6 +188,11 @@ public class PlayerController : Util.Singleton<PlayerController>
         previousYVelocity = _rb.linearVelocity.y;
     }
     
+    private void SetRespawnPoint(Vector3 respawn)
+    {
+        spawnPoint = respawn;
+    }
+    
     private void Respawn()
     {
         _rb.linearVelocity = Vector3.zero;
