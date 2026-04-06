@@ -16,12 +16,12 @@ public class PipeGenerator : MonoBehaviour
 
     private void UpdateMesh()
     {
-        Vector3 p1 = point1.position;
-        Vector3 p2 = point2.position;
+        var p1 = point1.position;
+        var p2 = point2.position;
         mesh.position = (p1 + p2) / 2;
         mesh.localScale = new Vector3(1, Vector3.Magnitude(p1 - p2), 1);
 
-        Vector3 rotationVector = p1 - p2;
+        var rotationVector = p1 - p2;
         mesh.rotation = Quaternion.LookRotation(rotationVector);
         mesh.eulerAngles += new Vector3(90, 0, 0);
     }

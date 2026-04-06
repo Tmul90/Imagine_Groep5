@@ -30,7 +30,7 @@ public class StimulationAuditoryManager : Singleton<StimulationAuditoryManager>
 
     private void HandleAuditoryFeedback(float s)
     {
-        float height = PlayerController.Instance.GetHeight();
+        var height = PlayerController.Instance.GetHeight();
         reverbFilter.dryLevel = 0 - (height * 35f);
         echoFilter.wetMix = s / 100f;
         lowPassFilter.cutoffFrequency = ((s * -1f) + 100f) * 220f;

@@ -32,7 +32,7 @@ public class CableRendering : MonoBehaviour
     private void SetPoints(List<Vector3> list)
     {
         list.Clear();
-        foreach (Transform child in transform.GetComponentsInChildren<Transform>())
+        foreach (var child in transform.GetComponentsInChildren<Transform>())
         {
             list.Add(child.position);
         }
@@ -42,21 +42,21 @@ public class CableRendering : MonoBehaviour
     {
         // Configure points
         _points.RemoveAt(0);
-        List<Vector3> referencePoints = new List<Vector3>();
+        var referencePoints = new List<Vector3>();
         
         for (int i = 0; i < _points.Count; i++)
         {
-            Vector3 point = _points[i];
+            var point = _points[i];
             
             if (i != 0)
             {
-                float hangMultiplier = Vector3.Distance(_points[i - 1], _points[i]);
+                var hangMultiplier = Vector3.Distance(_points[i - 1], _points[i]);
                 
                 for (int j = 0; j <= hangPoints - 1; j++)
                 {
-                    float t = ((float)j + 1f) / ((float)hangPoints + 1f);
-                    Vector3 center = Vector3.Lerp(_points[i - 1], point, t);
-                    float hangAmount = 1f - Mathf.Pow((t - 0.5f) * 2f, 2f);
+                    var t = (j + 1f) / (hangPoints + 1f);
+                    var center = Vector3.Lerp(_points[i - 1], point, t);
+                    var hangAmount = 1f - Mathf.Pow((t - 0.5f) * 2f, 2f);
                     center.y -= hang * hangAmount * hangMultiplier;
                     referencePoints.Add(center);
                 }

@@ -35,10 +35,10 @@ public class SpeedrunTimer : MonoBehaviour
 
     private void SetText()
     {
-        float minutes = Mathf.Floor(_time / 60);
-        float seconds = Mathf.Floor(_time % 60);
-        float milliseconds = Mathf.Floor(_time * 1000) % 1000;
-        _timerText.text = minutes.ToString() + ":" + seconds.ToString() + ":" + milliseconds.ToString();
+        var minutes = Mathf.Floor(_time / 60);
+        var seconds = Mathf.Floor(_time % 60);
+        var milliseconds = Mathf.Floor(_time * 1000) % 1000;
+        _timerText.text = minutes + ":" + seconds + ":" + milliseconds;
     }
 
     private void Reset()
