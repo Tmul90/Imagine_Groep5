@@ -1,3 +1,4 @@
+/*
 using UnityEngine;
 using UnityEditor;
 
@@ -76,3 +77,4 @@ public class FlipColliderAxis : MonoBehaviour
         Debug.Log($"Prefabs → flipped: {flipped}");
     }
 }
+*/
