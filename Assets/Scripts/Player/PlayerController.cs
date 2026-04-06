@@ -85,7 +85,7 @@ public class PlayerController : Singleton<PlayerController>
         jumpManager = GetComponent<JumpManager>();
         jumpManager.groundLayer = groundLayer;
 
-        StimulationManager.OnRespawn += Respawn;
+        OasisManager.OnRespawnChange += SetRespawnPoint;
 
         // TODO move to cursor script that flips it on and off
         Cursor.lockState = CursorLockMode.Locked;
@@ -146,6 +146,11 @@ public class PlayerController : Singleton<PlayerController>
                 _rb.linearVelocity += Vector3.up * (Physics.gravity.y * ascendMultiplier * Time.deltaTime);
                 break;
         }
+    }
+
+    private void SetRespawnPoint(Vector3 respawn)
+    {
+        spawnPoint = respawn;
     }
     
     private void Respawn()
