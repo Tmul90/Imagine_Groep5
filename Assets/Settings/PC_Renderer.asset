@@ -69,7 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Active: 1
   settings:
-    renderPassEvent: 550
+    renderPassEvent: 450
     outlineThickness: 2
     outlineColor: {r: 0.06687131, g: 0.069333754, b: 0.08657086, a: 1}
 --- !u!114 &4977716767098283156

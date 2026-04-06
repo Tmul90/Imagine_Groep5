@@ -2,7 +2,7 @@ using System;
 using Sound;
 using UnityEngine;
 
-public class Trashcan : MonoBehaviour
+public class SoundOnMove : MonoBehaviour
 {
     [SerializeField] private AudioClip rollingClip;
     [SerializeField] private float rollingVolume = 3f;
@@ -39,9 +39,15 @@ public class Trashcan : MonoBehaviour
         }
         else
         {
+            if (soundObject is null)
+            {
+                Debug.LogWarning("SoundOnMove - Sound Object is null, might grab wrong object");
+                soundObject = transform.GetChild(transform.childCount - 1).gameObject.GetComponent<AudioSource>();
+            }
             if (velMagnitude < rollingSpeedThreshold)
             {
                 Destroy(soundObject.gameObject);
+                soundObject = null;
             }
             else
             {
