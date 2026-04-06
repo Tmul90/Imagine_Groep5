@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 using UnityEditor;
 
 public class ApplyVolumetricToLights : MonoBehaviour
@@ -64,4 +64,4 @@ public class ApplyVolumetricToLights : MonoBehaviour
 
         Debug.Log($"Prefabs → Applied: {applied}");
     }
-}
+}*/

@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Linq;
+using Sound;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class ParkourController : MonoBehaviour
 {
@@ -12,7 +14,11 @@ public class ParkourController : MonoBehaviour
     [SerializeField] private KeyCode parkourKeyCode = KeyCode.LeftShift;
     [SerializeField] private KeyCode dropKeyCode = KeyCode.LeftControl;
     [SerializeField] private KeyCode climbKeyCode = KeyCode.Space;
-
+    [Header("Audio")]
+    [SerializeField] private AudioClip[] parkourSounds;
+    [SerializeField] private Vector2 parkourSoundVolume = new Vector2(-2f, 0.3f);
+    [SerializeField] private float parkourSoundRandomPitch = 0.1f;
+    
     private int _detectionFrame = 0;
     private Parkourable _currentTarget;
     private Rigidbody _rb;
@@ -51,11 +57,13 @@ public class ParkourController : MonoBehaviour
     public void PerformVault(Vector3 overPoint, float speed)
     {
         StartCoroutine(VaultRoutine(overPoint, speed));
+        StartSound();
     }
 
     public void PerformMantle(Vector3 ledgePoint, float speed)
     {
         StartCoroutine(MantleRoutine(ledgePoint, speed));
+        StartSound();
     }    
     
     public void PerformHang(Vector3 gripPoint, Hangable surface, float hangSpeed, float traverseSpeed)
@@ -63,6 +71,12 @@ public class ParkourController : MonoBehaviour
         _hangDrop  = false;
         _hangClimb = false;
         StartCoroutine(HangRoutine(gripPoint, surface, hangSpeed, traverseSpeed));
+        StartSound();
+    }
+
+    private void StartSound()
+    {
+        SoundManager.Instance.PlayRandomClip(parkourSounds, transform, Random.Range(parkourSoundVolume.x, parkourSoundVolume.y), false, parkourSoundRandomPitch);
     }
     
     private void DetectParkourable()

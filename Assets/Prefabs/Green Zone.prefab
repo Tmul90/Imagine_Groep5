@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3741807298052004907}
   - component: {fileID: 6548672731867066501}
   - component: {fileID: 845303526351766865}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Green Zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,6 +125,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collide: 0
   otherObject: {fileID: 0}
+  enterZoneClip: {fileID: 8300000, guid: fbc8571c7b2916b088b785214f9804d8, type: 3}
+  volume: 0.3
 --- !u!114 &845303526351766865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,7 +149,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3939141662224257079}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spawnpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -44,14 +44,14 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 0
-  m_Color: {r: 1, g: 0.51899546, b: 0.3026065, a: 1}
-  m_Intensity: 20
+  m_Color: {r: 1, g: 0.7830667, b: 0.68606395, a: 1}
+  m_Intensity: 5
   m_Range: 10
   m_SpotAngle: 175
   m_InnerSpotAngle: 0
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -181,14 +181,14 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 0
-  m_Color: {r: 1, g: 0.51899546, b: 0.3026065, a: 1}
-  m_Intensity: 20
+  m_Color: {r: 1, g: 0.7830667, b: 0.68606395, a: 1}
+  m_Intensity: 5
   m_Range: 10
   m_SpotAngle: 175
   m_InnerSpotAngle: 0
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -340,7 +340,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 81e2f189b0990297f96402c94772551f, type: 2}
-  - {fileID: 2100000, guid: 772148755ecda37ff886ce815a803c7d, type: 2}
+  - {fileID: 2100000, guid: 036915aab693fcc6b922d52d64e96cd2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -369,7 +369,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1366822431717155374}
-  m_Material: {fileID: 13400000, guid: 4502898367920af45854bc6a5965403f, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -392,6 +392,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8969386925146122377}
+  - component: {fileID: 8126944520612165175}
+  - component: {fileID: 6170178844841825596}
   m_Layer: 0
   m_Name: Lantern
   m_TagString: Untagged
@@ -417,3 +419,46 @@ Transform:
   - {fileID: 3651864930297510567}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &8126944520612165175
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3024631788571437130}
+  serializedVersion: 4
+  m_Mass: 40
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &6170178844841825596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3024631788571437130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f26917c459a34fdaa8dbd731d239400, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lanternSound: {fileID: 8300000, guid: a12ff881848fcf892b8d164afa0d0ac5, type: 3}
+  lanternVolume: 1.4
+  lanternRandomPitch: 0.1
+  velocityThreshold: 0.3

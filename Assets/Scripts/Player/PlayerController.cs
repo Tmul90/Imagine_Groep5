@@ -1,13 +1,14 @@
 using System;
+using Sound;
+using Unity.VisualScripting;
 using UnityEngine;
-using Util;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(CapsuleCollider))]
 [RequireComponent(typeof(CameraController))]
 [RequireComponent(typeof(ParkourController))]
 [RequireComponent(typeof(JumpManager))]
-public class PlayerController : Singleton<PlayerController>
+public class PlayerController : Util.Singleton<PlayerController>
 {
     [Header("Spawnpoint")]
     // Flip access to only have to get the spawnpoint never let anything set a value of the player like this
@@ -24,6 +25,18 @@ public class PlayerController : Singleton<PlayerController>
     [SerializeField] private float jumpForce = 10f;
     [SerializeField] private float fallMultiplier = 2.5f; // Multiplies gravity when falling down
     [SerializeField] private float ascendMultiplier = 2f; // Multiplies gravity for ascending to peak of jump
+    
+    [Header("Sound")]
+    [SerializeField] private AudioClip[] moveSounds;
+    [SerializeField] private float moveSoundSpeed = 0.4f;
+    [SerializeField] private float sprintSoundSpeed = 0.25f;
+    [SerializeField] private float moveSoundVolume = 1f;
+    [SerializeField] private AudioClip[] jumpSounds;
+    [SerializeField] private float jumpSoundVolume = 0.5f;
+    [SerializeField] private float randomPitch = 0.3f;
+    [SerializeField] private AudioClip fallSound;
+    [SerializeField] private float fallSoundVolume = 0.4f;
+    [SerializeField] private float fallSoundVelocityThreshold = 8f;
     
     // TODO move to different script that handles layers instead of player
     [SerializeField] private LayerMask groundLayer;
@@ -44,6 +57,10 @@ public class PlayerController : Singleton<PlayerController>
     private Collider _collider;
     
     private Animator _camController;
+
+    private float moveSoundTime = 0f;
+
+    private float previousYVelocity;
     
     private void Start() =>
         Init();
@@ -63,6 +80,7 @@ public class PlayerController : Singleton<PlayerController>
         MovePlayer();
         GroundCheck();
         ApplyJumpPhysics();
+        PlayFallSound();
         
         
         // DEBUG
@@ -72,8 +90,12 @@ public class PlayerController : Singleton<PlayerController>
         }
     }
 
+    // ReSharper disable Unity.PerformanceAnalysis
     internal float GetHeight()
-        { return _collider.bounds.min.y; }
+    {
+        if(_collider is null) {Debug.LogWarning("No collider found");return 0f;}
+        return _collider.bounds.min.y;
+    }
 
     internal void SetMovementEnabled(bool enabled) => _movementEnabled = enabled; 
 
@@ -85,7 +107,7 @@ public class PlayerController : Singleton<PlayerController>
         jumpManager = GetComponent<JumpManager>();
         jumpManager.groundLayer = groundLayer;
 
-        OasisManager.OnRespawnChange += SetRespawnPoint;
+        StimulationManager.OnRespawn += Respawn;
 
         // TODO move to cursor script that flips it on and off
         Cursor.lockState = CursorLockMode.Locked;
@@ -115,6 +137,13 @@ public class PlayerController : Singleton<PlayerController>
 
         if (_isGrounded && _moveHorizontal == 0 && _moveForward == 0)
             _rb.linearVelocity = new Vector3(0, _rb.linearVelocity.y, 0);
+
+        moveSoundTime -= Time.deltaTime;
+        if (movement != Vector3.zero && moveSoundTime < 0f && _isGrounded)
+        {
+            SoundManager.Instance.PlayRandomClip(moveSounds, transform, moveSoundVolume);
+            moveSoundTime = Input.GetKey(runKey) ? sprintSoundSpeed : moveSoundSpeed;
+        }
     }
     
 
@@ -124,6 +153,7 @@ public class PlayerController : Singleton<PlayerController>
         _isGrounded = false;
         _groundCheckTimer = GroundCheckDelay;
         _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, jumpForce, _rb.linearVelocity.z);
+        SoundManager.Instance.PlayRandomClip(jumpSounds, transform, jumpSoundVolume, false, randomPitch);
     }
     
     private void GroundCheck()
@@ -148,6 +178,16 @@ public class PlayerController : Singleton<PlayerController>
         }
     }
 
+    private void PlayFallSound()
+    {
+        float yVelDifference = previousYVelocity - _rb.linearVelocity.y;
+        if (yVelDifference < -fallSoundVelocityThreshold && previousYVelocity < -fallSoundVelocityThreshold / 2f)
+        {
+            SoundManager.Instance.PlaySoundClip(fallSound, transform, fallSoundVolume * (Mathf.Abs(yVelDifference) / 20f));
+        }
+        previousYVelocity = _rb.linearVelocity.y;
+    }
+    
     private void SetRespawnPoint(Vector3 respawn)
     {
         spawnPoint = respawn;
