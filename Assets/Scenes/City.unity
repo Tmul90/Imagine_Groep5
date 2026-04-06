@@ -13495,9 +13495,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 7.8
-  radius: 0.2
 --- !u!114 &66958476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25432,9 +25429,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!1001 &162961946
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26354,6 +26348,90 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6389007395907764101, guid: 2ae74ba8ada7b455d91b433e74a906c4, type: 3}
   m_PrefabInstance: {fileID: 175753791}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &176119686
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 761397634}
+    m_Modifications:
+    - target: {fileID: 192426651616291185, guid: bab4b2866866bfa54a31d46cb3dd7b90, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 4502898367920af45854bc6a5965403f, type: 2}
+    - target: {fileID: 692010145076690490, guid: bab4b2866866bfa54a31d46cb3dd7b90, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 4502898367920af45854bc6a5965403f, type: 2}
+    - target: {fileID: 1043637277130840252, guid: bab4b2866866bfa54a31d46cb3dd7b90, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -35.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1043637277130840252, guid: bab4b2866866bfa54a31d46cb3dd7b90, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 14.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1043637277130840252, guid: bab4b2866866bfa54a31d46cb3dd7b90, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -23.257
+      objectReference: {fileID: 0}
+    - target: {fileID: 1043637277130840252, guid: bab4b2866866bfa54a31d46cb3dd7b90, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1043637277130840252, guid: bab4b2866866bfa54a31d46cb3dd7b90, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1043637277130840252, guid: bab4b2866866bfa54a31d46cb3dd7b90, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1043637277130840252, guid: bab4b2866866bfa54a31d46cb3dd7b90, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1043637277130840252, guid: bab4b2866866bfa54a31d46cb3dd7b90, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1043637277130840252, guid: bab4b2866866bfa54a31d46cb3dd7b90, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1043637277130840252, guid: bab4b2866866bfa54a31d46cb3dd7b90, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2306794912922729867, guid: bab4b2866866bfa54a31d46cb3dd7b90, type: 3}
+      propertyPath: m_Name
+      value: Wall Lamp (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7037744267570100269, guid: bab4b2866866bfa54a31d46cb3dd7b90, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7037744267570100269, guid: bab4b2866866bfa54a31d46cb3dd7b90, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8708866
+      objectReference: {fileID: 0}
+    - target: {fileID: 7037744267570100269, guid: bab4b2866866bfa54a31d46cb3dd7b90, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7037744267570100269, guid: bab4b2866866bfa54a31d46cb3dd7b90, type: 3}
+      propertyPath: m_Intensity
+      value: 200
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3347193176221734736, guid: bab4b2866866bfa54a31d46cb3dd7b90, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1400615506}
+  m_SourcePrefab: {fileID: 100100000, guid: bab4b2866866bfa54a31d46cb3dd7b90, type: 3}
 --- !u!1 &176352215
 GameObject:
   m_ObjectHideFlags: 0
@@ -34969,9 +35047,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!1001 &238988541
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39680,9 +39755,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!1 &287642694
 GameObject:
   m_ObjectHideFlags: 0
@@ -49489,9 +49561,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!1 &346352257
 GameObject:
   m_ObjectHideFlags: 0
@@ -51428,9 +51497,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!1 &362725886
 GameObject:
   m_ObjectHideFlags: 0
@@ -70293,9 +70359,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!114 &417520040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70308,9 +70371,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!114 &417520041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70951,9 +71011,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!1001 &421895701
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -76670,9 +76727,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!114 &457299955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76685,9 +76739,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!114 &457299956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84009,9 +84060,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!1001 &503407339
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -87008,9 +87056,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!43 &533072559
 Mesh:
   m_ObjectHideFlags: 0
@@ -87655,9 +87700,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!1 &538873217
 GameObject:
   m_ObjectHideFlags: 0
@@ -114174,9 +114216,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!1 &692687349
 GameObject:
   m_ObjectHideFlags: 0
@@ -121923,6 +121962,7 @@ Transform:
   - {fileID: 612508250}
   - {fileID: 909716414}
   - {fileID: 692565834}
+  - {fileID: 1095087774}
   - {fileID: 1988239449}
   - {fileID: 1591320086}
   - {fileID: 488654901}
@@ -122067,9 +122107,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 7.8
-  radius: 0.2
 --- !u!114 &764479925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122772,8 +122809,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 471c1d83472c2ad5197b1ca0290f9b80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 13400000, guid: 4502898367920af45854bc6a5965403f, type: 2}
-  prefabFolderPath: Assets/Prefabs
 --- !u!114 &766754758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122786,7 +122821,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68e1b2c2d33873bc99b928ab31997657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabFolderPath: Assets/Prefabs
 --- !u!114 &766754759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122799,7 +122833,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64bb161b89832894691fd122c6569c58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabFolderPath: Assets/Prefabs
 --- !u!1 &767208015
 GameObject:
   m_ObjectHideFlags: 0
@@ -127321,9 +127354,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!1001 &819094196
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -128842,9 +128872,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!114 &830749967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128857,9 +128884,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!114 &830749968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131146,9 +131170,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!1 &853518474
 GameObject:
   m_ObjectHideFlags: 0
@@ -139009,9 +139030,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!1 &892265858
 GameObject:
   m_ObjectHideFlags: 0
@@ -168345,9 +168363,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!114 &1048337193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180752,6 +180767,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7809229208354464046, guid: 4432877c8b860be609154cc99b85074d, type: 3}
   m_PrefabInstance: {fileID: 1093367293}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1095087774 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1043637277130840252, guid: bab4b2866866bfa54a31d46cb3dd7b90, type: 3}
+  m_PrefabInstance: {fileID: 176119686}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1095123990
 GameObject:
   m_ObjectHideFlags: 0
@@ -186461,9 +186481,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!1 &1138496937
 GameObject:
   m_ObjectHideFlags: 0
@@ -204685,9 +204702,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!114 &1232884252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204700,9 +204714,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!114 &1232884253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221653,9 +221664,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!114 &1362358403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221668,9 +221676,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!114 &1362358404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224974,6 +224979,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1879051369923760568, guid: 7bc42cb7c19c02a448f02a4eee167f0b, type: 3}
   m_PrefabInstance: {fileID: 1400521684}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1400615504 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3347193176221734736, guid: bab4b2866866bfa54a31d46cb3dd7b90, type: 3}
+  m_PrefabInstance: {fileID: 176119686}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1400615506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400615504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1401034412
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -232250,9 +232272,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 7.8
-  radius: 0.2
 --- !u!114 &1465478606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235042,9 +235061,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!1001 &1483898591
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -235978,9 +235994,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!114 &1490477589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235993,9 +236006,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!114 &1490477590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245800,9 +245810,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!114 &1524843531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245815,9 +245822,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!114 &1524843532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269433,9 +269437,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!1001 &1657736535
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -270472,9 +270473,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!1001 &1667785214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -272241,9 +272239,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!1001 &1687135333
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -280709,9 +280704,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!1001 &1739350870
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -287279,9 +287271,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!114 &1790197524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287643,9 +287632,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!114 &1791277236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287658,9 +287644,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!114 &1791277237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287878,9 +287861,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!114 &1793371473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287893,9 +287873,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!114 &1793371474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301399,9 +301376,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!114 &1887406101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315254,9 +315228,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!1001 &1931673708
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -321627,9 +321598,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!114 &1969969091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321642,9 +321610,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!114 &1969969092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328637,9 +328602,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!1001 &2018221750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -339389,9 +339351,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!1 &2095092239
 GameObject:
   m_ObjectHideFlags: 0
@@ -341217,9 +341176,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!1 &2113065794
 GameObject:
   m_ObjectHideFlags: 0
@@ -359281,9 +359237,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!1 &648139050490032963
 GameObject:
   m_ObjectHideFlags: 0
@@ -365705,9 +365658,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!33 &1210935920907425880
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -366243,9 +366193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!4 &1270374825814894825
 Transform:
   m_ObjectHideFlags: 0
@@ -372622,9 +372569,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!114 &1765900564178657896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372637,9 +372581,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!1 &1770580276316899025
 GameObject:
   m_ObjectHideFlags: 0
@@ -381254,9 +381195,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!33 &2553383114887109662
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -390389,9 +390327,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!4 &3349870569724505398
 Transform:
   m_ObjectHideFlags: 0
@@ -394784,9 +394719,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!1 &3736768620629903272
 GameObject:
   m_ObjectHideFlags: 0
@@ -402108,9 +402040,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!1 &4351651145994845437
 GameObject:
   m_ObjectHideFlags: 0
@@ -403444,9 +403373,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!65 &4499465458107195207
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -405882,9 +405808,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!33 &4729362564625641461
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -412989,9 +412912,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!33 &5383179511372455736
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -423434,9 +423354,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!1 &6158001470095637001
 GameObject:
   m_ObjectHideFlags: 0
@@ -431040,9 +430957,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!33 &6805699700325037009
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -432040,9 +431954,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!4 &6895245152581238281
 Transform:
   m_ObjectHideFlags: 0
@@ -438632,9 +438543,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!4 &7440482539542619106
 Transform:
   m_ObjectHideFlags: 0
@@ -441294,9 +441202,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!33 &7700913119201791396
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -458131,9 +458036,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8bca95f7c947b4db5fb152a0d693d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anisotropy: 0.25
-  scattering: 1
-  radius: 0.2
 --- !u!4 &8796187631162455387
 Transform:
   m_ObjectHideFlags: 0
