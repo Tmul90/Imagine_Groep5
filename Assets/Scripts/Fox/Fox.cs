@@ -4,52 +4,85 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class Fox : MonoBehaviour
 {
-    [SerializeField] private GameObject foxObject;                  // Object to move
+    [SerializeField] private GameObject foxPrefab;                  // Object to move
+    [SerializeField] private Transform pointA;                      // Target position
     [SerializeField] private Transform pointB;                      // Target position
     [SerializeField] private float moveSpeed = 5f;                  // Speed of movement
-
-    private Vector3 _pointA;                                         // Start position
-    private bool _playerInside;
-
+    [SerializeField] private float triggerCooldown = 10f;
+    
+    private bool _isMoving = false;
+    private GameObject _currentFox;
+    private float _lastTriggerTime = -Mathf.Infinity;
 
     private void Start()
     {
-        if (foxObject is null) return;
-
-        _pointA = transform.position;
-        foxObject.transform.position = _pointA;
-        foxObject.SetActive(false);
-        
-        var col = GetComponent<BoxCollider>();
-        col.isTrigger = true;
+        GetComponent<BoxCollider>().isTrigger = true;
     }
 
     private void Update()
     {
-        if (foxObject is null) return;
-        
-        var target = _playerInside ? pointB.position : _pointA;
-        foxObject.transform.position = Vector3.MoveTowards(foxObject.transform.position, target, moveSpeed * Time.deltaTime);
-        
-        if (!_playerInside && foxObject.transform.position == _pointA && foxObject.activeSelf)
+        if (_isMoving && _currentFox != null)
         {
-            foxObject.SetActive(false);
+            MoveFox();
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<PlayerController>() is null) return;
-        
-        foxObject.SetActive(true);
-        _playerInside = true;
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.GetComponent<PlayerController>() is not null)
+        if (other.GetComponent<PlayerController>() != null)
         {
-            _playerInside = false;
+            if (Time.time - _lastTriggerTime < triggerCooldown) return;
+
+            if (_currentFox == null)
+            {
+                SpawnFox();
+                _lastTriggerTime = Time.time;
+            }
         }
     }
+    
+    private void SpawnFox() 
+    {
+        _currentFox = Instantiate(foxPrefab, pointA.position, Quaternion.identity);
+        
+        var direction = pointB.position - _currentFox.transform.position;
+        if (direction != Vector3.zero)
+            _currentFox.transform.rotation = Quaternion.LookRotation(direction);
+
+        _isMoving = true;
+    }
+    
+    private void MoveFox()
+    {
+        if (_currentFox == null) return;
+        
+        _currentFox.transform.position = Vector3.MoveTowards(
+            _currentFox.transform.position,
+            pointB.position,
+            moveSpeed * Time.deltaTime
+        );
+        
+        RotateTowardsPointB();
+        
+        if (Vector3.Distance(_currentFox.transform.position, pointB.position) < 0.01f)
+        {
+            Destroy(_currentFox);
+            _currentFox = null;
+            _isMoving = false;
+        }
+    }
+    
+    private void RotateTowardsPointB()
+    {
+        var direction = pointB.position - _currentFox.transform.position;
+        if (direction != Vector3.zero)
+        {
+            var lookRotation = Quaternion.LookRotation(direction);
+            
+            lookRotation *= Quaternion.Euler(0f, 180f, 0f);
+
+            _currentFox.transform.rotation = lookRotation;
+        }
+    }
+    
 }
