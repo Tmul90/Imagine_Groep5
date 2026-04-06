@@ -220,6 +220,7 @@ GameObject:
   - component: {fileID: 1492042101601674143}
   - component: {fileID: 3177214498195515688}
   - component: {fileID: 5280421042839322300}
+  - component: {fileID: 8854975904019214578}
   - component: {fileID: 1188654240622718336}
   - component: {fileID: 8992635506128476033}
   m_Layer: 3
@@ -414,6 +415,23 @@ MonoBehaviour:
   parkourSounds: []
   parkourSoundVolume: {x: -2, y: 0.3}
   parkourSoundRandomPitch: 0.1
+--- !u!114 &8854975904019214578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5552376964741310126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ab2a75d42d57a240b285f22ad327897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteOptions: []
+  spawnRadius: 3
+  maxSprites: 5
+  maxScale: 1.5
+  minScale: 0.5
 --- !u!114 &1188654240622718336
 MonoBehaviour:
   m_ObjectHideFlags: 0
