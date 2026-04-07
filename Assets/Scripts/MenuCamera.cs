@@ -83,10 +83,10 @@ public class MenuCamera : MonoBehaviour
 
     private void SetPosition(Transform cam)
     {
-        _currentPosition = Vector3.Lerp(_currentPosition, _targetPosition, Time.deltaTime * smoothing);
-        _currentRotation = Vector3.Lerp(cam.eulerAngles, _targetRotation, Time.deltaTime * smoothing);
+        _currentPosition = Vector3.Lerp(_currentPosition, _targetPosition, Mathf.Clamp01(Time.deltaTime * smoothing));
+        _currentRotation = Vector3.Lerp(cam.eulerAngles, _targetRotation, Mathf.Clamp01(Time.deltaTime * smoothing));
         _currentRotation.z = 0f;
-        _camera.fieldOfView =  Mathf.Lerp(_camera.fieldOfView, _targetFov, Time.deltaTime * smoothing);
+        _camera.fieldOfView =  Mathf.Lerp(_camera.fieldOfView, _targetFov, Mathf.Clamp01(Time.deltaTime * smoothing));
     }
 
     private void AddPosition(Transform cam)
@@ -95,8 +95,8 @@ public class MenuCamera : MonoBehaviour
         Vector2 mousePos = ((Input.mousePosition / resolution) * 2f) - Vector2.one;
         Vector3 targetAddPosition = cam.transform.right * mousePos.x + cam.transform.up * mousePos.y;
         Vector3 targetAddRotation = new Vector3(0f, 0f, mousePos.x);
-        _currentAddPosition = Vector3.Lerp(_currentAddPosition, targetAddPosition, Time.deltaTime * addPosSmoothing);
-        _currentAddRotation = Vector3.Lerp(_currentAddRotation, targetAddRotation, Time.deltaTime * addPosSmoothing);
+        _currentAddPosition = Vector3.Lerp(_currentAddPosition, targetAddPosition, Mathf.Clamp01(Time.deltaTime * addPosSmoothing));
+        _currentAddRotation = Vector3.Lerp(_currentAddRotation, targetAddRotation, Mathf.Clamp01(Time.deltaTime * addPosSmoothing));
         cam.position = _currentPosition + (_currentAddPosition * addPosAmount);
         cam.eulerAngles = _currentRotation + _currentAddRotation;
     }
