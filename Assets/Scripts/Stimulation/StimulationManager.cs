@@ -17,6 +17,7 @@ public class StimulationManager : Singleton<StimulationManager>
     [SerializeField] private float addStimulationSpeed = 5f;
     [SerializeField] private float stimulationRecoverySpeed = 10f;
     [SerializeField] private Vector2 natureSoundDistance = new Vector2(10f, 20f);
+    [SerializeField] private GameObject customPlayer = null;
     
     private StimulationAuditoryManager auditoryManager;
 
@@ -68,7 +69,7 @@ public class StimulationManager : Singleton<StimulationManager>
         for (int i = 0; i < oasisTransform.childCount; i++)
         {
             Vector3 oasisPos = oasisTransform.GetChild(i).GetChild(0).transform.position;
-            Vector3 playerPos = PlayerController.Instance.transform.position;
+            Vector3 playerPos = customPlayer is null ? customPlayer.transform.position : PlayerController.Instance.transform.position;
             float distance = Vector3.Distance(oasisPos, playerPos);
             nearest = distance < nearest ? distance : nearest;
         }

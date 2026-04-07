@@ -35,6 +35,9 @@ public class SoundOnMove : MonoBehaviour
             {
                 SoundManager.Instance.PlaySoundClip(rollingClip, transform, rollingVolume * velMagnitude, true, randomAddPitch, basePitch);
                 soundObject = transform.GetChild(transform.childCount - 1).gameObject.GetComponent<AudioSource>();
+                
+                // Debug
+                print("Pos: " + transform.position.ToString() + ", Name: " + name.ToString() + ", Parent: " + transform.parent.name.ToString());
             }
         }
         else
