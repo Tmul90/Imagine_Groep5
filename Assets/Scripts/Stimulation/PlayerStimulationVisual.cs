@@ -38,7 +38,7 @@ public class PlayerStimulationVisual : MonoBehaviour
     private void UpdateStimulation(float stimulationPercentage)
     {
         _currentStimulationPercent = stimulationPercentage;
-        UpdatePeople(stimulationPercentage);
+        //UpdatePeople(stimulationPercentage);
     }
 
     private void Update()

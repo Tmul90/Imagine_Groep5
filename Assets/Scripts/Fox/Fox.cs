@@ -1,88 +1,69 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider))]
 public class Fox : MonoBehaviour
 {
-    [SerializeField] private GameObject foxPrefab;                  // Object to move
-    [SerializeField] private Transform pointA;                      // Target position
-    [SerializeField] private Transform pointB;                      // Target position
-    [SerializeField] private float moveSpeed = 5f;                  // Speed of movement
-    [SerializeField] private float triggerCooldown = 10f;
+    [SerializeField] private GameObject foxRoot;
+    [SerializeField] private Transform headRoot;
+    [SerializeField] private float removeDelay = 4f;
     
-    private bool _isMoving = false;
+    private Quaternion _headRestLocalRotation;
     private GameObject _currentFox;
-    private float _lastTriggerTime = -Mathf.Infinity;
 
     private void Start()
     {
-        GetComponent<BoxCollider>().isTrigger = true;
+        var box = GetComponent<BoxCollider>();
+        box.isTrigger = true;
+
+        if (headRoot)
+            _headRestLocalRotation = headRoot.localRotation;
+
+        SetFoxActive(true);
     }
 
     private void Update()
     {
-        if (_isMoving && _currentFox != null)
-        {
-            MoveFox();
-        }
+        RotateTowardsPlayer();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<PlayerController>() != null)
-        {
-            if (Time.time - _lastTriggerTime < triggerCooldown) return;
+        if (!other.GetComponent<PlayerController>()) return;
 
-            if (_currentFox == null)
-            {
-                SpawnFox();
-                _lastTriggerTime = Time.time;
-            }
-        }
+        StartCoroutine(DelayRemoval(removeDelay, false));
     }
-    
-    private void SpawnFox() 
-    {
-        _currentFox = Instantiate(foxPrefab, pointA.position, Quaternion.identity);
-        
-        var direction = pointB.position - _currentFox.transform.position;
-        if (direction != Vector3.zero)
-            _currentFox.transform.rotation = Quaternion.LookRotation(direction);
 
-        _isMoving = true;
+    private IEnumerator DelayRemoval(float delay, bool active)
+    {
+        yield return new WaitForSeconds(delay);
+        SetFoxActive(active);
     }
     
-    private void MoveFox()
-    {
-        if (_currentFox == null) return;
-        
-        _currentFox.transform.position = Vector3.MoveTowards(
-            _currentFox.transform.position,
-            pointB.position,
-            moveSpeed * Time.deltaTime
-        );
-        
-        RotateTowardsPointB();
-        
-        if (Vector3.Distance(_currentFox.transform.position, pointB.position) < 0.01f)
-        {
-            Destroy(_currentFox);
-            _currentFox = null;
-            _isMoving = false;
-        }
-    }
+    private void SetFoxActive(bool active) => foxRoot.SetActive(active);
     
-    private void RotateTowardsPointB()
+    private void RotateTowardsPlayer()
     {
-        var direction = pointB.position - _currentFox.transform.position;
-        if (direction != Vector3.zero)
-        {
-            var lookRotation = Quaternion.LookRotation(direction);
-            
-            lookRotation *= Quaternion.Euler(0f, 180f, 0f);
+        if (!headRoot || !PlayerController.Instance) return;
 
-            _currentFox.transform.rotation = lookRotation;
-        }
+        var playerPos = PlayerController.Instance.transform.position;
+        var headPos = headRoot.position;
+        var direction = playerPos - headPos;
+        if (direction.sqrMagnitude < 0.001f) return;
+
+        var localDirection = headRoot.parent.InverseTransformDirection(direction);
+        
+        var targetRotation = Quaternion.LookRotation(localDirection, Vector3.up);
+
+        var euler = (targetRotation * Quaternion.Inverse(_headRestLocalRotation)).eulerAngles;
+        euler.x = Mathf.Clamp(euler.x > 180 ? euler.x - 360 : euler.x, -45f, 45f);
+        euler.y = Mathf.Clamp(euler.y > 180 ? euler.y - 360 : euler.y, -60f, 60f);
+        euler.z = 0f;
+
+        targetRotation = _headRestLocalRotation * Quaternion.Euler(euler);
+
+        headRoot.localRotation = Quaternion.Slerp(headRoot.localRotation, targetRotation, Time.deltaTime * 5f);
     }
-    
 }

@@ -32594,29 +32594,57 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3033467121557415962, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5330750077938020144, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5330750077938020144, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6075226642808333353, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
       propertyPath: m_Name
       value: FoxSpawner
       objectReference: {fileID: 0}
     - target: {fileID: 6283055497901773103, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
       propertyPath: m_Size.x
-      value: 8.32
+      value: 8.46
       objectReference: {fileID: 0}
     - target: {fileID: 6283055497901773103, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
-      propertyPath: m_Size.y
-      value: 4.26
+      propertyPath: m_Center.x
+      value: 0.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 6283055497901773103, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
+      propertyPath: m_Center.y
+      value: -0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6283055497901773103, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
+      propertyPath: m_Center.z
+      value: 5.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 6556843577074927707, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 6556843577074927707, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8618063
+      objectReference: {fileID: 0}
+    - target: {fileID: 6556843577074927707, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6556843577074927707, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.5072377
+      objectReference: {fileID: 0}
+    - target: {fileID: 6556843577074927707, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6556843577074927707, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 60.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611310006488549934, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
+      propertyPath: foxRoot
+      value: 
+      objectReference: {fileID: 1039335109}
+    - target: {fileID: 7611310006488549934, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
+      propertyPath: Spawnpoint
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8408210246871599198, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
       propertyPath: m_LocalPosition.x
@@ -150906,6 +150934,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1381705933696521179, guid: 6116b021fd8dc20cca0dc566a46d68e1, type: 3}
   m_PrefabInstance: {fileID: 956588583}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &957164452 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5887689959806735073, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
+  m_PrefabInstance: {fileID: 2099301040}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &957658989
 GameObject:
   m_ObjectHideFlags: 0
@@ -168067,6 +168100,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4221227937501577537, guid: 94e41c8b79cc86cf8b7b60acf9a633ad, type: 3}
   m_PrefabInstance: {fileID: 1037095308}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1039335109 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5887689959806735073, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
+  m_PrefabInstance: {fileID: 209608833}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1040189591
 GameObject:
@@ -342204,6 +342242,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FoxSpawner (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7611310006488549934, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
+      propertyPath: foxRoot
+      value: 
+      objectReference: {fileID: 957164452}
     - target: {fileID: 8408210246871599198, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
       propertyPath: m_LocalPosition.x
       value: -25
