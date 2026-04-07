@@ -101394,6 +101394,26 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8854975904019214578, guid: 0ce86ef8b0d170e45ab674596cd46e9f, type: 3}
+      propertyPath: featherPrefab
+      value: 
+      objectReference: {fileID: 2343111506683247554, guid: 5b3eea4f19537d841b930505752bc254, type: 3}
+    - target: {fileID: 8854975904019214578, guid: 0ce86ef8b0d170e45ab674596cd46e9f, type: 3}
+      propertyPath: maxSpawnRadius
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8854975904019214578, guid: 0ce86ef8b0d170e45ab674596cd46e9f, type: 3}
+      propertyPath: minSpawnRadius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8854975904019214578, guid: 0ce86ef8b0d170e45ab674596cd46e9f, type: 3}
+      propertyPath: featherMaxRadius
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8854975904019214578, guid: 0ce86ef8b0d170e45ab674596cd46e9f, type: 3}
+      propertyPath: featherMinRadius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8854975904019214578, guid: 0ce86ef8b0d170e45ab674596cd46e9f, type: 3}
       propertyPath: peoplePrefabs.Array.size
       value: 2
       objectReference: {fileID: 0}
