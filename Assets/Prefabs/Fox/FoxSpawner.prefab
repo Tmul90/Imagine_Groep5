@@ -47,9 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae98ccb3681a6e4aa590546ef403ed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foxRoot: {fileID: 6556843577074927707}
+  foxRoot: {fileID: 5887689959806735073}
   headRoot: {fileID: 7651527723284301031}
-  triggerCooldown: 5
+  removeDelay: 4
 --- !u!65 &6283055497901773103
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -155,6 +155,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2f53c2730854c649b09ad6b6e26b35f, type: 3}
+--- !u!1 &5887689959806735073 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1277637452238877861, guid: d2f53c2730854c649b09ad6b6e26b35f, type: 3}
+  m_PrefabInstance: {fileID: 4615717569566139972}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6556843577074927707 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1941267848955342367, guid: d2f53c2730854c649b09ad6b6e26b35f, type: 3}
