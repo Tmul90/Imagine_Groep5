@@ -112121,15 +112121,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1528125001731800021, guid: 0ce86ef8b0d170e45ab674596cd46e9f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -100.2
+      value: -30.21
       objectReference: {fileID: 0}
     - target: {fileID: 1528125001731800021, guid: 0ce86ef8b0d170e45ab674596cd46e9f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 45.2
+      value: 0.34
       objectReference: {fileID: 0}
     - target: {fileID: 1528125001731800021, guid: 0ce86ef8b0d170e45ab674596cd46e9f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -69.8
+      value: -19.47
       objectReference: {fileID: 0}
     - target: {fileID: 1528125001731800021, guid: 0ce86ef8b0d170e45ab674596cd46e9f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -224819,6 +224819,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 15045261770012224, guid: 97ea7285ab2033e46973dadd80baa990, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3d818da994f78d0e5b674d813b521e16, type: 2}
     - target: {fileID: 919132149155446097, guid: 97ea7285ab2033e46973dadd80baa990, type: 3}
       propertyPath: m_Name
       value: TOREN_STANDBEELD_BOOM_AUTO_GOOT
