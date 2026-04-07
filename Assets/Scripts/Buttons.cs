@@ -5,6 +5,11 @@ public class Buttons : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Prologue");
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

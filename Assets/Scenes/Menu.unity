@@ -400644,7 +400644,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1958829513}
         m_TargetAssemblyTypeName: Buttons, Assembly-CSharp
-        m_MethodName: StartGame
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -510156,6 +510156,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collide: 0
   otherObject: {fileID: 0}
+  SetKillBoxPosition:
+    m_PersistentCalls:
+      m_Calls: []
   enterZoneClip: {fileID: 8300000, guid: fbc8571c7b2916b088b785214f9804d8, type: 3}
   volume: 0.3
 --- !u!4 &6376273365844804567
