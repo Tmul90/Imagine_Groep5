@@ -205541,6 +205541,87 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1001 &1082961256
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6075226642808333353, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
+      propertyPath: m_Name
+      value: FoxSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 6556843577074927707, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.500022
+      objectReference: {fileID: 0}
+    - target: {fileID: 6556843577074927707, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 6556843577074927707, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.9999847
+      objectReference: {fileID: 0}
+    - target: {fileID: 6556843577074927707, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.13294376
+      objectReference: {fileID: 0}
+    - target: {fileID: 6556843577074927707, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.99112356
+      objectReference: {fileID: 0}
+    - target: {fileID: 6556843577074927707, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 164.721
+      objectReference: {fileID: 0}
+    - target: {fileID: 8408210246871599198, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -28.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8408210246871599198, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8408210246871599198, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8408210246871599198, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071079
+      objectReference: {fileID: 0}
+    - target: {fileID: 8408210246871599198, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8408210246871599198, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.70710576
+      objectReference: {fileID: 0}
+    - target: {fileID: 8408210246871599198, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8408210246871599198, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8408210246871599198, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8408210246871599198, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e5ed31199275aa4bbf3ee9bd7417536, type: 3}
 --- !u!1 &1083941664
 GameObject:
   m_ObjectHideFlags: 0
@@ -474087,6 +474168,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collide: 0
   otherObject: {fileID: 0}
+  SetKillBoxPosition:
+    m_PersistentCalls:
+      m_Calls: []
   enterZoneClip: {fileID: 8300000, guid: fbc8571c7b2916b088b785214f9804d8, type: 3}
   volume: 0.3
 --- !u!4 &3681995461096942772
@@ -509811,6 +509895,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collide: 0
   otherObject: {fileID: 0}
+  SetKillBoxPosition:
+    m_PersistentCalls:
+      m_Calls: []
   enterZoneClip: {fileID: 8300000, guid: fbc8571c7b2916b088b785214f9804d8, type: 3}
   volume: 0.3
 --- !u!4 &6376273365844804567
@@ -534352,6 +534439,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collide: 0
   otherObject: {fileID: 0}
+  SetKillBoxPosition:
+    m_PersistentCalls:
+      m_Calls: []
   enterZoneClip: {fileID: 8300000, guid: fbc8571c7b2916b088b785214f9804d8, type: 3}
   volume: 0.3
 --- !u!23 &8133370892635433670
@@ -554893,3 +554983,4 @@ SceneRoots:
   - {fileID: 487867832}
   - {fileID: 407364691}
   - {fileID: 750291497}
+  - {fileID: 1082961256}
