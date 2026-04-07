@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2921630262462807893}
   - component: {fileID: 8988429753661519799}
   - component: {fileID: 1030371860741788148}
-  - component: {fileID: 8013368677438023049}
+  - component: {fileID: 862417545695753001}
   m_Layer: 0
   m_Name: Pipe
   m_TagString: Untagged
@@ -87,14 +87,14 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8013368677438023049
-BoxCollider:
+--- !u!136 &862417545695753001
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8998456853347252228}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 4502898367920af45854bc6a5965403f, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -105,6 +105,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.0082, y: 0.016238889, z: 0.0082}
-  m_Center: {x: 0.000000006357829, y: 0.003947769, z: 0.000042320888}
+  serializedVersion: 2
+  m_Radius: 0.004949813
+  m_Height: 0.016238889
+  m_Direction: 1
+  m_Center: {x: 0.0000000062864274, y: 0.0039477693, z: 0.000042320706}

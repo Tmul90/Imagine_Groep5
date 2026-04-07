@@ -1,70 +1,55 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider))]
 public class Fox : MonoBehaviour
 {
-    [SerializeField] private GameObject foxRoot;
-    [SerializeField] private Transform headRoot;
-    [SerializeField] private float removeDelay = 4f;
-    
-    private Quaternion _headRestLocalRotation;
-    private GameObject _currentFox;
+    [SerializeField] private GameObject foxObject;                  // Object to move
+    [SerializeField] private Transform pointB;                      // Target position
+    [SerializeField] private float moveSpeed = 5f;                  // Speed of movement
+
+    private Vector3 _pointA;                                         // Start position
+    private bool _playerInside;
+
 
     private void Start()
     {
-        var box = GetComponent<BoxCollider>();
-        box.isTrigger = true;
+        if (foxObject is null) return;
 
-        if (headRoot)
-            _headRestLocalRotation = headRoot.localRotation;
-
-        SetFoxActive(false);
+        _pointA = transform.position;
+        foxObject.transform.position = _pointA;
+        foxObject.SetActive(false);
+        
+        var col = GetComponent<BoxCollider>();
+        col.isTrigger = true;
     }
 
     private void Update()
     {
-        RotateTowardsPlayer();
+        if (foxObject is null) return;
+        
+        var target = _playerInside ? pointB.position : _pointA;
+        foxObject.transform.position = Vector3.MoveTowards(foxObject.transform.position, target, moveSpeed * Time.deltaTime);
+        
+        if (!_playerInside && foxObject.transform.position == _pointA && foxObject.activeSelf)
+        {
+            foxObject.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.GetComponent<PlayerController>()) return;
-
-        StartCoroutine(DelayRemoval(removeDelay));
-    }
-
-    private IEnumerator DelayRemoval(float delay)
-    {
-        SetFoxActive(true);
-        yield return new WaitForSeconds(delay);
-        SetFoxActive(false);
-    }
-    
-    private void SetFoxActive(bool active) => foxRoot.SetActive(active);
-    
-    private void RotateTowardsPlayer()
-    {
-        if (!headRoot || !PlayerController.Instance) return;
-
-        var playerPos = PlayerController.Instance.transform.position;
-        var headPos = headRoot.position;
-        var direction = playerPos - headPos;
-        if (direction.sqrMagnitude < 0.001f) return;
-
-        var localDirection = headRoot.parent.InverseTransformDirection(direction);
+        if (other.GetComponent<PlayerController>() is null) return;
         
-        var targetRotation = Quaternion.LookRotation(localDirection, Vector3.up);
+        foxObject.SetActive(true);
+        _playerInside = true;
+    }
 
-        var euler = (targetRotation * Quaternion.Inverse(_headRestLocalRotation)).eulerAngles;
-        euler.x = Mathf.Clamp(euler.x > 180 ? euler.x - 360 : euler.x, -45f, 45f);
-        euler.y = Mathf.Clamp(euler.y > 180 ? euler.y - 360 : euler.y, -60f, 60f);
-        euler.z = 0f;
-
-        targetRotation = _headRestLocalRotation * Quaternion.Euler(euler);
-
-        headRoot.localRotation = Quaternion.Slerp(headRoot.localRotation, targetRotation, Time.deltaTime * 5f);
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponent<PlayerController>() is not null)
+        {
+            _playerInside = false;
+        }
     }
 }

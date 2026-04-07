@@ -66,7 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e48b876c4cbc9c4795a78a400f270d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionRange: 2
+  interactionRange: 1.5
   isEnabled: 1
   mantleSpeed: 4
   ledgeHeightOffset: 0.05

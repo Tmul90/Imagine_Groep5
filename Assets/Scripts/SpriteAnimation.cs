@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Util;
 
@@ -23,21 +24,24 @@ public class SpriteAnimation : Singleton<SpriteAnimation>
 
     private void Update()
     {
-        if (_playing)
+        if (SceneManager.GetActiveScene().name != "Menu")
         {
-            _timer += Time.deltaTime * _direction;
-            _timer = Mathf.Clamp(_timer, 0f, (sprites.Length - 1) / animationFPS);
-            _currentSprite = (int)Mathf.Floor(_timer * animationFPS);
-            _currentSprite = Mathf.Clamp(_currentSprite, 0, sprites.Length - 1);
+            if (_playing)
+            {
+                _timer += Time.deltaTime * _direction;
+                _timer = Mathf.Clamp(_timer, 0f, (sprites.Length - 1) / animationFPS);
+                _currentSprite = (int)Mathf.Floor(_timer * animationFPS);
+                _currentSprite = Mathf.Clamp(_currentSprite, 0, sprites.Length - 1);
 
+                _image.sprite = sprites[_currentSprite];
+            }
+            else
+            {
+                _timer = 0f;
+            }
+        
             _image.sprite = sprites[_currentSprite];
         }
-        else
-        {
-            _timer = 0f;
-        }
-        
-        _image.sprite = sprites[_currentSprite];
     }
 
 

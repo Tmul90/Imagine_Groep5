@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 [RequireComponent(typeof(BoxCollider))]
 [RequireComponent(typeof(OasisCollisionChecker))]
@@ -11,10 +10,9 @@ public class Oasis : MonoBehaviour
     
     [SerializeField] private Transform spawnPoint;
     private OasisCollisionChecker _oasisCollisionChecker;
-    private bool _playerInside = false;
+    private bool playerInside = false;
 
-    private void Awake() =>
-        _oasisCollisionChecker = GetComponent<OasisCollisionChecker>();
+    private void Awake() => _oasisCollisionChecker = GetComponent<OasisCollisionChecker>();
 
     private void Update()
     {
@@ -24,12 +22,12 @@ public class Oasis : MonoBehaviour
 
         switch (playerPresent)
         {
-            case true when !_playerInside:
-                _playerInside = true;
+            case true when !playerInside:
+                playerInside = true;
                 OnPlayerEnter?.Invoke(spawnPoint.position);
                 break;
-            case false when _playerInside:
-                _playerInside = false;
+            case false when playerInside:
+                playerInside = false;
                 OnPlayerExit?.Invoke();
                 break;
         }

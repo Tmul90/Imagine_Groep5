@@ -17,6 +17,7 @@ public class StimulationManager : Singleton<StimulationManager>
     [SerializeField] private float addStimulationSpeed = 5f;
     [SerializeField] private float stimulationRecoverySpeed = 10f;
     [SerializeField] private Vector2 natureSoundDistance = new Vector2(10f, 20f);
+    [SerializeField] private GameObject customPlayer = null;
     
     private StimulationAuditoryManager auditoryManager;
 
@@ -63,20 +64,20 @@ public class StimulationManager : Singleton<StimulationManager>
     
     private void GetClosestOasisDistance()
     {
-        var oasisTransform = OasisManager.Instance.transform;
-        var nearest = 99999999999f;
+        Transform oasisTransform = OasisManager.Instance.transform;
+        float nearest = 99999999999f;
         for (int i = 0; i < oasisTransform.childCount; i++)
         {
-            var oasisPos = oasisTransform.GetChild(i).GetChild(0).transform.position;
-            var playerPos = PlayerController.Instance.transform.position;
-            var distance = Vector3.Distance(oasisPos, playerPos);
+            Vector3 oasisPos = oasisTransform.GetChild(i).GetChild(0).transform.position;
+            Vector3 playerPos = customPlayer is null ? customPlayer.transform.position : PlayerController.Instance.transform.position;
+            float distance = Vector3.Distance(oasisPos, playerPos);
             nearest = distance < nearest ? distance : nearest;
         }
         
-        var min = natureSoundDistance.x;
-        var max = natureSoundDistance.y;
-        var minus = 1 / ((max - min) / min);
-        var percentage = Mathf.Clamp01((nearest / (max - min)) - minus);
+        float min = natureSoundDistance.x;
+        float max = natureSoundDistance.y;
+        float minus = 1 / ((max - min) / min);
+        float percentage = Mathf.Clamp01((nearest / (max - min)) - minus);
         auditoryManager.SetVolumes(percentage);
     }
 

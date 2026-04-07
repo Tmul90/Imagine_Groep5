@@ -12,6 +12,9 @@ using UnityEngine.SceneManagement;
 public class PlayerController : Util.Singleton<PlayerController>
 {
     [Header("Spawnpoint")]
+    // Flip access to only have to get the spawnpoint never let anything set a value of the player like this
+    // The player should always be the one requesting information
+    // What if a gnome decides to change the spawnpoint they can now and we dont want that
     public Vector3 spawnPoint;
     
     [Header("Movement")]
@@ -105,13 +108,14 @@ public class PlayerController : Util.Singleton<PlayerController>
         jumpManager = GetComponent<JumpManager>();
         jumpManager.groundLayer = groundLayer;
 
-        OasisManager.OnRespawnChange += SetRespawnPoint;
-        RespawnBox.Instance.Respawn += Respawn;
         StimulationManager.OnRespawn += Respawn;
 
         // TODO move to cursor script that flips it on and off
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        if (SceneManager.GetActiveScene().name != "Menu")
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
         
         spawnPoint = transform.position;
         
@@ -180,17 +184,17 @@ public class PlayerController : Util.Singleton<PlayerController>
 
     private void PlayFallSound()
     {
-        var yVelDifference = previousYVelocity - _rb.linearVelocity.y;
+        float yVelDifference = previousYVelocity - _rb.linearVelocity.y;
         if (yVelDifference < -fallSoundVelocityThreshold && previousYVelocity < -fallSoundVelocityThreshold / 2f)
         {
             SoundManager.Instance.PlaySoundClip(fallSound, transform, fallSoundVolume * (Mathf.Abs(yVelDifference) / 20f));
         }
         previousYVelocity = _rb.linearVelocity.y;
     }
-
-    private void SetRespawnPoint(Vector3 respawnPoint)
+    
+    private void SetRespawnPoint(Vector3 respawn)
     {
-        spawnPoint = respawnPoint;
+        spawnPoint = respawn;
     }
     
     private void Respawn()

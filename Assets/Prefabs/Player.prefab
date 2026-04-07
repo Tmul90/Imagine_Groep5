@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 957792462011464459}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -62,7 +62,7 @@ Transform:
   m_GameObject: {fileID: 2565657539573464519}
   serializedVersion: 2
   m_LocalRotation: {x: -0.043577887, y: -0.043577887, z: -0.0019026523, w: 0.99809736}
-  m_LocalPosition: {x: 0, y: 0.2, z: 0}
+  m_LocalPosition: {x: 0, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -86,7 +86,7 @@ Camera:
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 15.638705
+  m_FocalLength: 50
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -99,7 +99,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.01
+  near clip plane: 0.3
   far clip plane: 1000
   field of view: 75
   orthographic: 0
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
-  m_Antialiasing: 1
+  m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_RequiresColorTexture: 0
   m_Version: 2
   m_TaaSettings:
-    m_Quality: 1
+    m_Quality: 3
     m_FrameInfluence: 0.1
     m_JitterScale: 1
     m_MipBias: 0
@@ -220,13 +220,11 @@ GameObject:
   - component: {fileID: 1492042101601674143}
   - component: {fileID: 3177214498195515688}
   - component: {fileID: 5280421042839322300}
-  - component: {fileID: 8854975904019214578}
   - component: {fileID: 1188654240622718336}
   - component: {fileID: 8992635506128476033}
-  - component: {fileID: 1287703406199682262}
   m_Layer: 3
   m_Name: Player
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -385,9 +383,8 @@ MonoBehaviour:
   moveSoundSpeed: 0.5
   sprintSoundSpeed: 0.25
   moveSoundVolume: 1
-  jumpSounds:
-  - {fileID: 8300000, guid: 2a3269472f24a56a0b20121d3f39070c, type: 3}
-  jumpSoundVolume: 0
+  jumpSounds: []
+  jumpSoundVolume: 0.3
   randomPitch: 0.1
   fallSound: {fileID: 8300000, guid: f8bd30a59b23661b7ba22fda4b5841c5, type: 3}
   fallSoundVolume: 0.4
@@ -407,43 +404,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b3327520c93d0241a5d125ef7cce310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRadius: 2.5
+  detectionRadius: 1.8
   parkourLayer:
     serializedVersion: 2
     m_Bits: 128
-  parkourKeyCode: 101
+  parkourKeyCode: 304
   dropKeyCode: 306
   climbKeyCode: 32
-  parkourSounds:
-  - {fileID: 8300000, guid: 91c53e293b9e35d4190da812cabad1cf, type: 3}
-  - {fileID: 8300000, guid: 2a3269472f24a56a0b20121d3f39070c, type: 3}
+  parkourSounds: []
   parkourSoundVolume: {x: -2, y: 0.3}
   parkourSoundRandomPitch: 0.1
---- !u!114 &8854975904019214578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5552376964741310126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ab2a75d42d57a240b285f22ad327897, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  peoplePrefabs:
-  - {fileID: 7746504835000391159, guid: eddcaac7c2602ae40a18dad2505ebc83, type: 3}
-  - {fileID: 2343111506683247554, guid: 392c7996d606cb74e91c1a5e7ecd8bcb, type: 3}
-  minSpawnRadius: 3
-  maxSpawnRadius: 5
-  maxPeople: 20
-  featherPrefab: {fileID: 2343111506683247554, guid: 5b3eea4f19537d841b930505752bc254, type: 3}
-  featherMinRadius: 2
-  featherMaxRadius: 4
-  featherFallSpeed: 1
-  featherLifetime: 3
-  maxActiveFeathers: 20
-  featherSpawnInterval: 0.5
 --- !u!114 &1188654240622718336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,7 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13dad2c64f78f24c8cb230b461ab7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 3
+  mouseSensitivity: 2
   _cameraTransform: {fileID: 8156013948566820376}
 --- !u!114 &8992635506128476033
 MonoBehaviour:
@@ -471,15 +441,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boxSize: {x: 0.3, y: 0.1, z: 0.3}
---- !u!114 &1287703406199682262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5552376964741310126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ceca8fa3e4275442823fc5e11b81b2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
