@@ -12,4 +12,9 @@ public class RespawnBox : Singleton<RespawnBox>
         if (other.GetComponent<PlayerController>())
             Respawn?.Invoke();
     }
+
+    public void MoveBox(float killBoxHeight)
+    {
+        transform.position = new Vector3(transform.position.x, killBoxHeight, transform.position.z);
+    }
 }
