@@ -2,7 +2,7 @@ using System;
 using Sound;
 using UnityEngine;
 
-public class Trashcan : MonoBehaviour
+public class SoundOnMove : MonoBehaviour
 {
     [SerializeField] private AudioClip rollingClip;
     [SerializeField] private float rollingVolume = 3f;
@@ -35,13 +35,22 @@ public class Trashcan : MonoBehaviour
             {
                 SoundManager.Instance.PlaySoundClip(rollingClip, transform, rollingVolume * velMagnitude, true, randomAddPitch, basePitch);
                 soundObject = transform.GetChild(transform.childCount - 1).gameObject.GetComponent<AudioSource>();
+                
+                // Debug
+                print("Pos: " + transform.position.ToString() + ", Name: " + name.ToString() + ", Parent: " + transform.parent.name.ToString());
             }
         }
         else
         {
+            if (soundObject is null)
+            {
+                Debug.LogWarning("SoundOnMove - Sound Object is null, might grab wrong object");
+                soundObject = transform.GetChild(transform.childCount - 1).gameObject.GetComponent<AudioSource>();
+            }
             if (velMagnitude < rollingSpeedThreshold)
             {
                 Destroy(soundObject.gameObject);
+                soundObject = null;
             }
             else
             {
