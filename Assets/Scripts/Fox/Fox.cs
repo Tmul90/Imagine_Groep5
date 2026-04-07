@@ -21,7 +21,7 @@ public class Fox : MonoBehaviour
         if (headRoot)
             _headRestLocalRotation = headRoot.localRotation;
 
-        SetFoxActive(true);
+        SetFoxActive(false);
     }
 
     private void Update()
@@ -33,13 +33,14 @@ public class Fox : MonoBehaviour
     {
         if (!other.GetComponent<PlayerController>()) return;
 
-        StartCoroutine(DelayRemoval(removeDelay, false));
+        StartCoroutine(DelayRemoval(removeDelay));
     }
 
-    private IEnumerator DelayRemoval(float delay, bool active)
+    private IEnumerator DelayRemoval(float delay)
     {
+        SetFoxActive(true);
         yield return new WaitForSeconds(delay);
-        SetFoxActive(active);
+        SetFoxActive(false);
     }
     
     private void SetFoxActive(bool active) => foxRoot.SetActive(active);
