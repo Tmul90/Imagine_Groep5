@@ -1,0 +1,2 @@
+This file contains the underscore (_) character, which displays the underline symbol that you can see on the image in that folder, but which may cause problems in some softwares.
+If you don't need this symbol you'd better use the DeadSecretary.ttf file, that is in the parent folder.

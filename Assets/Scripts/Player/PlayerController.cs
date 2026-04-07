@@ -110,8 +110,11 @@ public class PlayerController : Util.Singleton<PlayerController>
         StimulationManager.OnRespawn += Respawn;
 
         // TODO move to cursor script that flips it on and off
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        if (SceneManager.GetActiveScene().name != "Menu")
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
         
         spawnPoint = transform.position;
         
